@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <!-- в ссылке ниже нужно, чтобы был https, а не http -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+<!--    <link href="css/hover.css" rel="stylesheet" media="all"> &lt;!&ndash; hover&ndash;&gt;-->
+<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Custom styles for this template -->
+<!--    МОЖНО УДАЛИТЬ MAP.JS -->
+<!--    <script src="{% static 'main/js/map.js' %}"></script>-->
+
+    <!-- Bootstrap JS (гугл карта - рабочая) -->
+<!--    <script src="/js/eldarion-ajax.min.js"></script>-->
+<!--    <script src="https://cdn.jsdelivr.net/npm/eldarion-ajax@0.16.0/js/eldarion-ajax.min.js"></script>-->
+
+<!--2ой слайдер!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+<!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+
+    <!-- favicon (начало) --> <!-- {'%' static 'main/img/log.png' '%'} -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'main/img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'main/img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'main/img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'main/img/favicon/site.webmanifest' %}">
+    <link rel="mask-icon" href="{% static 'main/img/favicon/safari-pinned-tab.svg' %}" color="#2b5797">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="theme-color" content="#2b5797">
+    <!-- favicon (конец) -->
+
+</head>
+<body>
+
+
+
+    <header class="header-menu clearfix"> <!-- clearfix -->
+
+        <div class="main-top-header-menu header-menu-middle-3">
+            <article>
+                <a href="{% url 'home' %}">
+                    <img src="{% static 'main/img/log.png' %}" alt="Avalon-auto-log" id="avalon-auto-logo"
+                    style="width: 180px; height: 70px;"><!-- {'%' static 'main/img/log2.png' '%'} class="center-img" -->
+                    </a>
+            </article>
+            <article>
+                <div>
+                    <ul class="phones">
+                        {% for i in header_phones %}
+                            <li>
+                                <a href="tel:{{ i }}">
+                                    <img src="{% static 'main/img/icon_phone.png' %}"
+                                         alt="Позвоните нам"
+                                         style="width: 12px;
+                                          height: 12px;
+                                           float: left;
+                                            margin-top: 5.5px;
+                                             margin-right: 5px;">
+                                    <small>{{ i }}</small>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
+            <article style="color: #fff">
+                <div class="position-registration">
+                    {% if request.user.is_authenticated %}
+                        <p>{{ user.username }} | <a href="{% url 'logout' %}">Выйти</a></p>
+                        <p><a href="{% url 'private_room_home' %}">Личный кабинет</a></p>
+                    {% else %}
+                        <p><a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a></p>
+                    {% endif %}
+                </div>
+            </article>
+            <article class="main-phones">
+                <div>
+                    <ul class="phones-hidden">
+                        {% for i in header_phones %}
+                            <li>
+                                <a href="tel:{{ i }}">
+                                    <img src="{% static 'main/img/icon_phone.png' %}"
+                                         alt="Позвоните нам">
+                                    <small>{{ i }}</small>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </article>
+        </div>
+
+    </header>
+
+
+    <main> <!-- class="clearfix" -->
+        {% block main_content %}
+        {% endblock %}
+    </main>
+
+
+    <footer class="foot clearfix">
+
+        <div class="middle4-article"> <!-- middle4-article main-top clearfix -->
+            <article>
+                    <h2>Реквизиты</h2>
+                    <div class="foot-text">
+                        <p>УНП:123456789</p>
+                        <p>Тел.: +375 (17) 111-22-33</p>
+                        <p>Адрес регистрации:</p>
+                        <p>г.Минск ул.Дунина-Марцикевича д.3, минус 2 уровень паркинга</p>
+                        <div>
+                            <p>E-mail:
+                                <a class="feedback-comp-link" href="mailto:avtoexpertbel@gmail.com">avtoexpertbel@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+            </article>
+            <article>
+                    <h2>Кто мы?</h2>
+                    <div class="foot-text">
+                        <p><a class="feedback-comp-link" href="{% url 'about_us' %}">О компании</a></p>
+<!--                        <p>Лицензии</p>-->
+<!--                        <p>Награды</p>-->
+                        <p><a class="feedback-comp-link" href="{% url 'feedback_home' %}">Отзывы о компании</a></p>
+                    </div>
+            </article>
+            <article>
+                    <h2>Время работы</h2>
+                    <div class="foot-text">
+                        <p>пн - пт: с 9:00 до 19:00</p>
+                        <p>сб: с 10:00 до 17:00</p>
+                        <p>вс: выходной</p>
+                    </div>
+            </article>
+            <article>
+<!--                    <div class="coordinates-footer">-->
+                <h2>Свяжитесь с нами</h2>
+                <div class="foot-text-form">
+                    <form class="footer-form" method="post"> <!-- action="{% url 'home' %}" -->
+                        {% csrf_token %}
+<!--                                <p>Авторизованный пользователь: {{ user.username }}</p>-->
+<!--                                {{ form.as_p }}-->
+<!--                                <p>{{ contact_with_us_form.name_field }}</p>-->
+<!--                                <p>{{ contact_with_us_form.email_field }}</p>-->
+<!--                                <p>{{ contact_with_us_form.content_field }}</p>-->
+                            <p>{{ contact_with_us_form.name_field }}</p>
+                            <p>{{ contact_with_us_form.email_field }}</p>
+                            <p>{{ contact_with_us_form.content_field }}</p>
+<!--                                {{ form.as_p }}-->
+<!--                                <p>{{ contact_with_us_form.name_field }}</p>-->
+<!--                                <p>{{ contact_with_us_form.email_field }}</p>-->
+<!--                                <p>{{ contact_with_us_form.content_field }}</p>-->
+
+<!--                                <p>{{ form.name_field }}</p>-->
+<!--                                <p>{{ form.email_field }}</p>-->
+<!--                                <p>{{ form.content_field }}</p>-->
+
+                        <button class="submit-button" type="submit">Задать вопрос</button>
+
+<!--                        <input type="text" class="foot-name" placeholder="Укажите Ваше имя">-->
+<!--                        <input type="text" class="foot-email" placeholder="Укажите Ваш email">-->
+<!--                        <textarea class="foot-textarea" cols="30" rows="10" placeholder="Опишите вопрос"></textarea>-->
+<!--                        <input type="submit" class="submit-button" value="Задать вопрос">-->
+                    </form>
+                </div>
+<!--                    </div>-->
+            </article>
+        </div>
+
+        <br>
+        <div class="social-networks clearfix"> <!-- middle2-article -->
+            <div class="foot-text-social-networks clearfix">Мы в социальных сетях
+            <script src="https://yastatic.net/share2/share.js"></script>
+            <div class="ya-share2" data-curtain data-shape="round"
+                 data-services="vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,skype,linkedin,lj"></div>
+
+<!--            <br>-->
+<!--            <div class="foot-text-social-networks">Расскажите о нас</div>-->
+<!--            <script src="https://yastatic.net/share2/share.js"></script>-->
+<!--            <div class="ya-share2"data-curtain data-shape="round" data-limit="0" data-more-button-type="short"-->
+<!--                 data-services="vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,skype,linkedin,lj"></div>-->
+            </div>
+        </div>
+<!--        </div>-->
+
+    </footer>
+
+
+</body>
+</html>

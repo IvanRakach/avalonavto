@@ -1,0 +1,43 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ feedback_header.author_name }}{% endblock %}
+
+{% block main_content %}
+<br>
+<div class="feedback_detail_view_anchor">
+    <div class="feedback_detail_view_block clearfix">
+        <div class="feedback_detail_view_user_name">
+            <h1>Отзыв пользователя: {{ feedback_header.author_name }}</h1>
+            <hr>
+        </div>
+        <div class="feedback_detail_view_img_content">
+            <div class="feedback_detail_view_img clearfix">
+<!--                <div>Фотографии пользователя:</div>-->
+                <div>
+                    <img src="{{ feedback_header.author_photo.url }}" class="feedback_detail_view_image">
+                </div>
+            </div>
+            <div class="feedback_detail_view_content clearfix">
+                <p>{{ feedback_header.content }}</p>
+            </div>
+
+            <div class="feedback_detail_view_time_create">
+                <hr>
+                <span>Время добавления: {{ feedback_header.time_create }}</span>
+                <hr>
+            </div>
+            <div class="feedback_cntrl_btns clearfix clearfix">
+                <div class="feedback_cntrl_btns_edit clearfix">
+                    <a href="{% url 'feedback-update' feedback_header.pk %}" class="btn_edit_feedback">Редактировать отзыв</a> <!-- btn btn-info -->
+                </div>
+                <div class="feedback_cntrl_btns_del">
+                    <a href="{% url 'feedback-delete' feedback_header.pk %}" class="btn_delete_feedback">Удалить отзыв</a> <!-- btn btn-danger -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<!--<a href="{% url 'feedback_home' %}">Читать остальные отзывы</a>-->
+{% endblock %}

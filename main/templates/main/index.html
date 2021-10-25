@@ -1,0 +1,355 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main_content %}
+
+<!-- слайдер -->
+<!-- Swiper -->
+    <div class="swiper-container mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="{% static 'main/img/slider-moto.jpg' %}" alt="slider-moto"></div> <!-- width="500" height="300" -->
+            <div class="swiper-slide"><img src="{% static 'main/img/slider-auto.jpg' %}" alt="slider-auto"></div>
+            <div class="swiper-slide"><img src="{% static 'main/img/slider-auto-electro.jpg' %}" alt="slider-auto-electro"></div>
+            <div class="swiper-slide"><img src="{% static 'main/img/slider-repair.jpg' %}" alt="slider-repair"></div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+<!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+
+<!-- Swiper 2 -->
+<!--    <div class="swiper-container mySwiper">-->
+<!--      <div class="swiper-wrapper">-->
+
+<!--        <div class="swiper-slide"><img src="{% static 'main/img/slider-moto.jpg' %}" alt="slider-moto" width="500" height="300"></div>-->
+<!--        <div class="swiper-slide"><img src="{% static 'main/img/slider-auto.jpg' %}" alt="slider-auto" width="500" height="300"></div>-->
+<!--        <div class="swiper-slide"><img src="{% static 'main/img/slider-auto-electro.jpg' %}" alt="slider-auto-electro" width="500" height="300"></div>-->
+<!--        <div class="swiper-slide"><img src="{% static 'main/img/slider-repair.jpg' %}" alt="slider-repair" width="500" height="300"></div>-->
+
+<!--      </div>-->
+<!--      <div class="swiper-pagination"></div>-->
+<!--    </div>-->
+<!-- Swiper JS -->
+<!--    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>-->
+
+    <!-- Initialize Swiper -->
+<!--    <script>-->
+<!--      var swiper = new Swiper(".mySwiper", {-->
+<!--        pagination: {-->
+<!--          el: ".swiper-pagination",-->
+<!--          dynamicBullets: true,-->
+<!--        },-->
+<!--      });-->
+<!--    </script>-->
+<!-- /Swiper 2 -->
+<br>
+<!-- /слайдер -->
+
+<!-- Таможенный калькулятор (начало) -->
+<!--<script src="/js/eldarion-ajax.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/eldarion-ajax@0.16.0/js/eldarion-ajax.min.js"></script>-->
+
+<div class="customs_calculator_block clearfix">
+    <h3 align="center">Таможенный калькулятор на 2021 год</h3>
+    <h5 align="center">Расчёт пошлин</h5>
+    <hr>
+
+    <div class="customs_calculator_block_1">
+        <form method="post" name="customs_calculator" enctype="multipart/form-data" class="customs_calculator"> <!-- tamojennij-calculator -->
+            {% csrf_token %}
+            <fieldset>
+
+                <div id="customers_type" class="customs_calculator_block_1_inputs">
+                    <span><strong>Выберите лицо, осуществляющее растаможку заказанной техники:</strong></span><br>
+                    <input type="radio" id="input_1_customers_type" class="radio_1"  name="customers_type" value="Физическое лицо"> <!--checked--> <!--class="input-range" - для пересчета зн-ний калькулятора  // onclick="select_on()"  -->
+                    <label for="input_1_customers_type">Физическое лицо</label>
+
+                    <input type="radio" id="input_2_customers_type" class="radio_1"  name="customers_type" value="Юридическое лицо" >
+                    <label for="input_2_customers_type">Юридическое лицо</label>
+                </div>
+                <div id="vehicle_type"  class="customs_calculator_block_1_inputs">
+                    <span><strong>Выберите тип заказываемой техники:</strong></span><br>
+                    <input type="radio" id="input_1_vehicle_type" class="radio_2"  name="vehicle_type" value="Мотоцикл">
+                    <label for="input_1_vehicle_type">Мотоцикл</label>
+
+                    <input type="radio" id="input_2_vehicle_type" class="radio_2" name="vehicle_type" value="Автомобиль">
+                    <label for="input_2_vehicle_type">Автомобиль</label>
+                </div>
+                <div id="engine_type"  class="customs_calculator_block_1_inputs">
+                    <span><strong>Выберите тип топлива у заказываемой техники:</strong></span><br>
+        <!--            <input type="radio" id="input_1_engine_type" class="radio_3" name="engine_type" value="Электро">-->
+        <!--            <label for="input_1_engine_type">Электро</label>  &lt;!&ndash; ДО 2021 НЕ АКТУАЛЬНО! НЕ УДАЛЯТЬ!!!!!!!!!!!! &ndash;&gt;-->
+
+                    <input type="radio" id="input_2_engine_type" class="radio_3"  name="engine_type" value="Бензин">
+                    <label for="input_2_engine_type">Бензин</label>
+
+                    <input type="radio" id="input_3_engine_type" class="radio_3" name="engine_type" value="Дизель">
+                    <label for="input_3_engine_type">Дизель</label>
+                </div>
+
+
+                <div>
+                    <label  class="customs_calculator_block_1_inputs"> <!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                        <span><strong>Год выпуска:</strong></span>
+                        <input type="number" min="0" max="200" step="1" id="input_4_vehicle_age" class="i-2 form-control"
+                               style="width: 200px" placeholder="Год выпуска">
+                    </label><br>
+                    <label  class="customs_calculator_block_1_inputs">
+                        <span><strong>Стоимость техники, евро (&#8364;):</strong></span>
+                        <input type="number" min="0" max="100000000" step="1" id="input_5_vehicle_price" class="form-control"
+                               style="width: 200px" placeholder="Стоимость"> <!-- form-control -->
+                    </label><br>
+                    <label  class="customs_calculator_block_1_inputs">
+                        <span><strong>Объем двигателя, см<sup>3</sup> :</strong></span>
+                        <input type="number" min="0" max="100" step="0.1" id="input_6_engine_volume" class="form-control"
+                               style="width: 200px" placeholder="Объем двигателя">
+                    </label>
+                </div><br>
+
+        <!--        <div id="decree_140">-->
+        <!--            <small>Таможенная льгота 50% (указ №140)</small><br>-->
+        <!--            <input type="radio" id="input_7_1_decree_140" class="radio_4" name="decree_140" value="Да">-->
+        <!--            <label for="input_7_1_decree_140">Да</label>-->
+
+        <!--            <input type="radio" id="input_7_2_decree_140" class="radio_4" checked name="decree_140" value="Нет">-->
+        <!--            <label for="input_7_2_decree_140">Нет</label>-->
+        <!--        </div>-->
+        <!--        <input type="checkbox" id="input_7_decree_140" class="i-7" name="decree_140" value="on"> &lt;!&ndash; value="Таможенная льгота 50% (указ №140)" &ndash;&gt;-->
+        <!--        <label for="input_7_decree_140">-->
+        <!--            <small>Таможенная льгота 50% (указ №140)</small>-->
+        <!--        </label><br>-->
+            </fieldset>
+        <!--    <button type="reset">Сбросить</button>-->
+<!--            <div class="calculator_result">-->
+<!--                <div class="out-result" id="out-result">Стоимость растаможки, евро (&#8364;): </div> &lt;!&ndash; aria-readonly="true" &ndash;&gt;-->
+<!--            </div>-->
+        </form>
+    </div>
+
+    <div class="customs_calculator_block_2 calculator_result">
+
+        <div class="out-result customs_calculator_block_2_inner" id="out-result">
+            Стоимость растаможки, евро (&#8364;):
+        </div> <!-- aria-readonly="true" -->
+    </div>
+
+<!--    <div class="customs_calculator_block_3">-->
+        <input type="button" id="evaluate" value="Рассчитать" class="b-1 input-btn">
+<!--    </div>-->
+
+</div>
+<br>
+
+<!-- подключение файла с js (калькулятора) -->
+ <script src="{% static 'main/js/calculator.js' %}"></script>
+<!-- Таможенный калькулятор (конец) -->
+
+<div class="container1">
+
+    <div class="container1_1">
+        <a href="{% url 'moto_import' %}" class="main_img_position"><!--  target="_blank" -->
+            <div class="text-block"><span class="text_in_block">Приобретение и доставка мотоциклов из США</span></div>
+            <img src="{% static 'main/img/moto_import1.png' %}" alt="moto_import"
+                 id="1st_button" class="img-responsive scale" style="height: 100%">
+        </a>
+
+    </div>
+    <div class="container1_2">
+        <a href="{% url 'auto_import' %}" class="main_img_position"><!--  target="_blank" -->
+            <div class="text-block"><span class="text_in_block">Приобретение и доставка автомобилей из США и Европы</span></div>
+            <img src="{% static 'main/img/auto_import1.png' %}" alt="auto_import"
+                 id="2nd_button" class="img-responsive scale" style="height: 100%">
+        </a>
+
+    </div>
+</div>
+<br>
+<div class="container2">
+    <div class="container2_1">
+        <a href="{% url 'moto_service' %}" class="main_img_position"><!--  target="_blank" -->
+            <div class="text-block"><span class="text_in_block">СТО мототехники</span></div>
+            <img src="{% static 'main/img/moto_repair1.png' %}" alt="moto_service"
+                 id="3rd_button" class="img-responsive scale" style="height: 100%">
+        </a>
+
+    </div>
+    <div class="container2_2">
+        <a href="{% url 'moto_safekeeping' %}" class="main_img_position"><!--  target="_blank" -->
+            <div class="text-block"><span class="text_in_block">Хранение мототехники</span></div>
+            <img src="{% static 'main/img/moto_safe_keeping.png' %}" alt="moto_safekeeping"
+                 id="4rd_button" class="img-responsive scale" style="height: 100%">
+        </a>
+        <br>
+    </div>
+</div>
+<br><br>
+
+<!-- Блок "преимущества работы с нами" -->
+<div class="main-middle3 maintop clearfix">
+    <h3 align="center">Преимущества работы с нами</h3>
+    <hr>
+    <div class="main-middle3-part clearfix">
+        <article>
+                <img src="{% static 'main/img/icon_cycle_v2.png' %}" alt="icon_cycle" width="100" height="100">
+                <p class="benefits-text">Полный цикл от покупки, ремонта или восстановления <br>
+                    до передачи владельцу выбранного транспорта <br>
+                    с учетом всех его пожеланий</p>
+        </article>
+        <article>
+                <img src="{% static 'main/img/icon_consulting_v2.png' %}" alt="icon_cycle" width="100" height="100">
+                <p class="benefits-text">Квалифицированная помощь в подборе мототехники <br>
+                    от специалистов, знающих свое дело</p>
+        </article>
+        <article>
+            <div>
+                <img src="{% static 'main/img/icon_deal_v2.png' %}" alt="icon_cycle" width="100" height="100">
+                <p class="benefits-text">Юридическое оформление сделки</p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <img src="{% static 'main/img/icon_insurance_v2.png' %}" alt="icon_cycle" width="100" height="100">
+                <p class="benefits-text">Страхование груза от утраты и повреждения <br>
+                    при его перевозке</p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <img src="{% static 'main/img/icon_credit_v2.png' %}" alt="icon_cycle" width="100" height="100">
+                <p class="benefits-text">Продажа техники в кредит и рассрочку</p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <img src="{% static 'main/img/icon_trade_in_v2.png' %}" alt="icon_cycle" width="100" height="100">
+                <p class="benefits-text">Комиссионная продажа, срочный выкуп и Trade-in</p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <img src="{% static 'main/img/icon_quality_v2.png' %}" alt="icon_cycle" width="100" height="100">
+                <p class="benefits-text">Гарантия качества продаваемой техники <br>
+                Вся техника проходит предпродажное обслуживание</p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <img src="{% static 'main/img/icon_money_economy_v2.png' %}" alt="icon_cycle" width="100" height="100">
+                <p class="benefits-text">Экономия вашего времени и средств</p>
+            </div>
+        </article>
+        <article>
+            <div>
+                <img src="{% static 'main/img/icon_biker_v2.png' %}" alt="icon_cycle" width="100" height="100">
+                <p class="benefits-text">Многие из наших сотрудников тоже являются байкерами!</p>
+            </div>
+        </article>
+    </div>
+<!--    <br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
+<!--    <div class="main-middle3-part clearfix">-->
+<!--        <article>-->
+<!--            <div>-->
+<!--                <img src="{% static 'main/img/icon_insurance_v2.png' %}" alt="icon_cycle" width="100" height="100">-->
+<!--                <p class="benefits-text">Страхование груза от утраты и повреждения <br>-->
+<!--                    при его перевозке</p>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--        <article>-->
+<!--            <div>-->
+<!--                <img src="{% static 'main/img/icon_credit_v2.png' %}" alt="icon_cycle" width="100" height="100">-->
+<!--                <p class="benefits-text">Продажа техники в кредит и рассрочку</p>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--        <article>-->
+<!--            <div>-->
+<!--                <img src="{% static 'main/img/icon_trade_in_v2.png' %}" alt="icon_cycle" width="100" height="100">-->
+<!--                <p class="benefits-text">Комиссионная продажа, срочный выкуп и Trade-in</p>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--    </div>-->
+<!--    <br><br><br><br><br><br><br><br><br><br><br><br>-->
+<!--    <div class="main-middle3-part clearfix">-->
+<!--        <article>-->
+<!--            <div>-->
+<!--                <img src="{% static 'main/img/icon_quality_v2.png' %}" alt="icon_cycle" width="100" height="100">-->
+<!--                <p class="benefits-text">Гарантия качества продаваемой техники <br>-->
+<!--                Вся техника проходит предпродажное обслуживание</p>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--        <article>-->
+<!--            <div>-->
+<!--                <img src="{% static 'main/img/icon_money_economy_v2.png' %}" alt="icon_cycle" width="100" height="100">-->
+<!--                <p class="benefits-text">Экономия вашего времени и средств</p>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--        <article>-->
+<!--            <div>-->
+<!--                <img src="{% static 'main/img/icon_biker_v2.png' %}" alt="icon_cycle" width="100" height="100">-->
+<!--                <p class="benefits-text">Многие из наших сотрудников тоже являются байкерами!</p>-->
+<!--            </div>-->
+<!--        </article>-->
+<!--    </div>-->
+</div>
+
+<!-- карта и маркер на ней -------------------------------->
+<h3 align="center" style="color: #040546">Где мы находимся</h3>
+<hr class="where_we">
+<div style="position:relative;overflow:hidden;">
+    <a href="https://yandex.by/maps/org/avalon_avto/163507873113/?utm_medium=mapframe&utm_source=maps"
+       style="color:#eee;font-size:12px;position:absolute;top:0px;">Авалон Авто</a>
+    <a href="https://yandex.by/maps/157/minsk/category/car_dealership/184105322/?utm_medium=mapframe&utm_source=maps"
+       style="color:#eee;font-size:12px;position:absolute;top:14px;">Автосалон в Минске</a>
+    <a href="https://yandex.by/maps/157/minsk/category/car_selection/111356394537/?utm_medium=mapframe&utm_source=maps"
+       style="color:#eee;font-size:12px;position:absolute;top:28px;">Автоподбор в Минске</a>
+    <iframe src="https://yandex.by/map-widget/v1/-/CCUqIFW9TA"
+            width="100%" height="570" frameborder="0" allowfullscreen="true" style="position:relative;"></iframe>
+</div>
+
+
+<!--<section>-->
+<!--<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1397.537708453676!2d27.484496192285107!3d53.90742032402919!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sby!4v1626969099919!5m2!1sru!2sby"-->
+<!--        width="100%" height="570" style="border:0" allowfullscreen="" loading="lazy"></iframe>-->
+<!--</section>-->
+
+
+<!--<section>-->
+<!--    <iframe class="avalon-auto-coordinates"-->
+<!--            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5590.186328504494!2d27.48237047628134!3d53.90715510834545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sby!4v1623752534173!5m2!1sru!2sby"-->
+
+<!--    frameborder="0" style="border:0" width="100%" height="570" allowfullscreen>-->
+
+<!--    </iframe>-->
+<!--</section>-->
+
+
+<!--<div class="form-with-map">-->
+<!--    <div class="avalon-auto-form">-->
+<!--        <p>Свяжитесь с нами</p>-->
+<!--        <form>-->
+<!--            <input type="text" class="foot-name" placeholder="Укажите Ваше имя">-->
+<!--            <input type="text" class="foot-email" placeholder="Укажите Ваш email">-->
+<!--            <textarea class="foot-textarea" cols="30" rows="10"></textarea>-->
+<!--            <input type="submit" class="submit" value="Связаться">-->
+<!--        </form>-->
+<!--    </div>-->
+<!--<div>-->
+<!--    <iframe class="avalon-auto-coordinates"-->
+<!--            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d5590.186328504494!2d27.48237047628134!3d53.90715510834545!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2sby!4v1623752534173!5m2!1sru!2sby"></iframe>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
+{% endblock %}

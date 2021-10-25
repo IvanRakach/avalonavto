@@ -1,0 +1,36 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Регистрация на сайте Avalon Auto{% endblock %}
+
+{% block main_content %}
+<br>
+<h3 class="register_anchor">Регистрация пользователей</h3>
+
+<div class="register_block_wrapper">
+    <div class="register_block">
+        <form method="post">
+            {% csrf_token %}
+
+            {% for f in user_form %}
+              <p><label class="form-label" for="{{ f.id_for_label }}">{{ f.label }}: </label>{{ f }}</p>
+    <!--            {% if f.label == 'Email' %}-->
+    <!--                <small class="register_form">Мы не распространяем информацию третьим лицам.</small>-->
+    <!--            {% endif %}-->
+    <!--            {% if f.label == 'Номер телефона' %}-->
+    <!--                <small>Мы не распространяем информацию третьим лицам.</small>-->
+    <!--            {% endif %}-->
+
+              <div class="form-errors">{{ f.errors }}</div>
+            {% endfor %}
+
+        <small>Мы не распространяем информацию третьим лицам.</small>
+
+        <div>
+            <button type="submit" class="reg_btn">Регистрация</button>
+        </div>
+        </form>
+
+    </div>
+</div>
+<br>
+{% endblock %}

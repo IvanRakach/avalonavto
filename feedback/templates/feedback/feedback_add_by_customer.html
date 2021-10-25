@@ -1,0 +1,87 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main_content %}
+<br>
+    <h1 class="feedback_add_by_customer_anchor">Отзывы клиентов</h1>
+    <div class="feedback_add_by_customer_block">
+
+        <br>
+        <br>
+
+        <!-- action="{% url 'feedback_add_by_customer' %}" -->
+
+        <form action="{% url 'feedback_add_by_customer' %}" method="post" enctype="multipart/form-data"> <!-- feedback_add_by_customer-form action="{% url 'feedback_add_by_customer' %}"-->
+<!--         post - метод передачи данных -->
+<!--         action="" - страница на которой мы будем обрабатывать все данные полученные из формы -->
+<!--         1. можно обрабатывать на любой странице, например: /feedback/check -->
+<!--         2. пропишем обработку этой страницы (этого urk-адреса) в файле url.py в нашем приложении-->
+<!--         3. пропишем отдельный метод на вкладке views.py (def имя метода)-->
+<!--         и в этом же методе будем обрабатывать полученные данные из формы, показывать либо ошибки, либо заносить данные в БД-->
+<!-- !!! --- 4. если не прописывать атрибут action, то обработка (проверка) данных будет происходит на этой же странице, где и находится наша форма-->
+<!--         другими словами - мы будем осуществлять проверку всех данных в том же методе feedback_add_by_customer, в котором мы выводим сам шаблон-->
+            {% csrf_token %} <!-- цифровая подпись (для безопасности) -->
+
+<!--    1 вариант реализации (перебираем через функцию as_p) -->
+<!--            {{ form.as_p }}<br> - as_p - это функция, которая сформирует поля формы в этом месте &ndash;&gt;-->
+<!--            {{ form.author_name }}<br>-->
+<!--            {{ form.feedback_title }}<br>-->
+<!--            {{ form.content }}<br>-->
+<!--            {{ form.author_photo }}<br>-->
+<!--            {{ form.is_published }}<br>-->
+<!--            {{ form.agreement_number }}<br>-->
+<!--            <span>{{ error }}</span>-->
+
+            {% if request.user.is_authenticated %}
+                <p>Логин авторизованного пользователя: {{ user.username }}</p>
+<!--                <input type="text" name="author_name">-->
+                <label for="author_name2">Имя автора комментария: </label>
+                <p id="author_name2">{{ adding_feedback_form.author_name }}</p> <!-- adding_feedback_form.author_name // form.author_name -->
+<!--                <p>-->
+<!--                    <label>Введите Имя автора комментария</label><br>-->
+<!--                    <input value="{{ adding_feedback_form.author_name }}" />-->
+<!--                </p>-->
+                <label for="agreement_number2">Номер договора: </label>
+                <p id="agreement_number2">{{ adding_feedback_form.agreement_number }}</p>
+                <label for="feedback_category2">Категория оказанных услуг: </label>
+                <p id="feedback_category2">{{ adding_feedback_form.feedback_category }}</p>
+<!--                <p>Логин пользователя: {{ user.username }}</p>-->
+<!--                <p>Номер договора: {{ form.agreement_number }}</p>-->
+                <label for="author_photo2">Фото: </label>
+                <p id="author_photo2">{{ adding_feedback_form.author_photo }}</p>
+                <label for="content2">Текст отзыва:</label>
+                <p id="content2">{{ adding_feedback_form.content }}</p>
+<!--                <span>{{ error }}</span>-->
+                <button class="feedback_add_btn" type="submit">Добавить отзыв</button>
+            <div class="form-label">{{ f.errors }}</div>
+            {% else %}
+                <div class="form-label">{{ f.errors }}</div>
+                <p>Изменить отзыв может только зарегистрированный пользователь</p>
+            {% endif %}
+
+
+
+<!--    2 вариант реализации (перебираем через цикл for) -->
+<!--            {% for f in form %}-->
+<!--&lt;!&ndash;    f - ссылается на каждый элемент формы: title, slug, content и т.д. &ndash;&gt;-->
+<!--&lt;!&ndash;    id_for_label - стандартное свойство объекта (его берем и используем) &ndash;&gt;-->
+<!--            <p><label class="form-label">{{ f.label }}: </label>{{ f }}</p>-->
+<!--            <div class="form-label">{{ f.errors }}</div>-->
+<!--            {% endfor %}-->
+
+<!--            после создания формы на питоне html удаляем (кроме кнопки) -->
+<!--            <input type="text" placeholder="Имя автора" class="form-control"><br>-->
+<!--            <input type="text" placeholder="Подзаголовок" class="form-control"><br>-->
+<!--            <textarea placeholder="Текст отзыва" class="form-control"></textarea><br>-->
+<!--            <input type="date" placeholder="Дата публикации" class="form-control"><br>-->
+<!--            <input type="time" placeholder="Время публикации" class="form-control"><br>-->
+<!--            <button class="feedback_add_btn" type="submit">Добавить отзыв</button> &lt;!&ndash; btn btn-success &ndash;&gt;-->
+
+
+
+    </div>
+<!--  {# комментарий #} {# {%%} #} -->
+<!--    <a href="{% url 'feedback_home' %}">Посмотреть все отзывы</a>-->
+{% endblock %}

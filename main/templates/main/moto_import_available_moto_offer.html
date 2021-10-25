@@ -1,0 +1,228 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Продажа {{ moto_offer.moto_brand_title_field }} {{ moto_offer.moto_model_title_field }}{% endblock %}
+
+{% block main_content %}
+<br>
+<h3 class="moto_import_anchor"> </h3>
+
+<div class="main_block_card clearfix">
+    <div class="backgroundclass clearfix">
+        <div class="item_img_block_main">
+            <div class="item_img_block clearfix">
+
+                <div class="fotorama"
+                     data-keyboard="true"
+                     data-swipe="true"
+                     data-shadows="true"
+                     data-allowfullscreen="true"
+                     data-nav="thumbs"
+                     data-loop="true">
+
+                    {% if moto_offer.moto_image_field_main %}
+                        <img src="{{ moto_offer.moto_image_field_main.url }}">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_2 %}
+                        <img src="{{ moto_offer.moto_image_field_2.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_3 %}
+                        <img src="{{ moto_offer.moto_image_field_3.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_4 %}
+                        <img src="{{ moto_offer.moto_image_field_4.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_5 %}
+                        <img src="{{ moto_offer.moto_image_field_5.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_6 %}
+                        <img src="{{ moto_offer.moto_image_field_6.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_7 %}
+                        <img src="{{ moto_offer.moto_image_field_7.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_8 %}
+                        <img src="{{ moto_offer.moto_image_field_8.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_9 %}
+                        <img src="{{ moto_offer.moto_image_field_9.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_10 %}
+                        <img src="{{ moto_offer.moto_image_field_10.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_11 %}
+                        <img src="{{ moto_offer.moto_image_field_11.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_12 %}
+                        <img src="{{ moto_offer.moto_image_field_12.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_13 %}
+                        <img src="{{ moto_offer.moto_image_field_13.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_14 %}
+                        <img src="{{ moto_offer.moto_image_field_14.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_15 %}
+                        <img src="{{ moto_offer.moto_image_field_15.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_16 %}
+                        <img src="{{ moto_offer.moto_image_field_16.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_17 %}
+                        <img src="{{ moto_offer.moto_image_field_17.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_18 %}
+                        <img src="{{ moto_offer.moto_image_field_18.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_19 %}
+                        <img src="{{ moto_offer.moto_image_field_19.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_image_field_20 %}
+                        <img src="{{ moto_offer.moto_image_field_20.url }}" alt="">
+                    {% endif %}
+                    {% if moto_offer.moto_video_field_youtube %}
+                        <a href="{{ moto_offer.moto_video_field_youtube }}">Video</a>
+                    {% endif %}
+                    {% if moto_offer.moto_video_field_load %}
+                        <a href="{{ moto_offer.moto_video_field_load.url }}">Video</a>
+                    {% endif %}
+                </div>
+
+            </div>
+        </div>
+        <div class="item_params_block clearfix">
+            <div class="item_params_block_details clearfix">
+                <h3><strong>Технические характеристики</strong></h3>
+                {% if moto_offer.moto_brand_title_field %}
+                <span class="sel_opacity">Марка: {{ moto_offer.moto_brand_title_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if moto_offer.moto_model_title_field %}
+                <span class="sel_opacity">Модель: {{ moto_offer.moto_model_title_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if moto_offer.type_of_moto %}
+                <span class="sel_opacity">Класс: {{ moto_offer.type_of_moto }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if moto_offer.fuel_type_field %}
+                <span class="sel_opacity">Вид топлива: {{ moto_offer.fuel_type_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if moto_offer.eng_vol_field %}
+                <span class="sel_opacity">Объем двигателя: {{ moto_offer.eng_vol_field }} см<sup>3</sup></span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if moto_offer.moto_mileage_field %}
+                <span class="sel_opacity">Пробег: {{ moto_offer.moto_mileage_field }} км.</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if moto_offer.transmission_field %}
+                <span class="sel_opacity">Трансмиссия: {{ moto_offer.transmission_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if moto_offer.moto_release_date_field %}
+                <span class="sel_opacity">Год выпуска: {{ moto_offer.moto_release_date_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if moto_offer.moto_VIN_vehicle %}
+                <span class="sel_opacity">VIN номер: {{ moto_offer.moto_VIN_vehicle }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+            </div>
+
+
+    <!--        <div class="item_params_block_contacts clearfix">-->
+    <!--            <h4>Контакты:</h4>-->
+    <!--            {% if moto_offer.moto_contacts_field %}-->
+    <!--            <p>{{ moto_offer.moto_contacts_field }}</p>-->
+    <!--            {% endif %}-->
+    <!--            {% if moto_offer.moto_contacts_field %}-->
+    <!--            <p>{{ moto_offer.moto_contacts_field }}</p>-->
+    <!--            {% endif %}-->
+    <!--            {% if moto_offer.moto_contacts_field %}-->
+    <!--            <p>{{ moto_offer.moto_contacts_field }}</p>-->
+    <!--            {% endif %}-->
+    <!--        </div>-->
+        </div>
+
+        <hr class="item_line">
+        <div class="item_description_block clearfix">
+
+            {% if moto_offer.moto_description_field %}
+                <h3><strong>Описание</strong></h3>
+                <div>{{ moto_offer.moto_description_field|linebreaks }}</div>
+            {% endif %}
+        </div>
+
+        <div class="item_params_block_prices clearfix">
+                <h3><strong>Стоимость</strong></h3>
+                {% if moto_offer.moto_price_BYN_field %}
+                <span class="sel_opacity">Цена в BYN: {{ moto_offer.moto_price_BYN_field }} бел.руб.</span>
+
+                {% endif %}
+                <br>
+                {% if moto_offer.moto_price_USD_field %}
+                <span class="sel_opacity">Цена в USD: ≈ {{ moto_offer.moto_price_USD_field }} $.</span>
+
+                {% endif %}
+            </div>
+
+            <div class="item_params_block_location clearfix">
+                <h3><strong>Расположение</strong></h3>
+                <p class="sel_opacity">{{ moto_offer.moto_location_field }}</p>
+            </div>
+
+        <div class="item_params_block_contacts clearfix">
+            <h3><strong>Контакты</strong></h3>
+
+            {% if moto_offer.moto_contacts_field %}
+                <p class="sel_opacity"><a href="tel:{{ moto_offer.moto_contacts_field }}">{{ moto_offer.moto_contacts_field }}</a></p>
+            {% endif %}
+        </div>
+
+    </div>
+</div>
+
+<div class="feedback_home_info_link">
+    <a href="{{ moto_offer.moto_link_field }}"><button class="feedback_home_info_link_btn">
+    <span>Просмотреть предложение на av.by</span></button></a>
+</div>
+<br>
+<!--<div>-->
+<!--    <a href="{{ moto_offer.moto_link_field }}">Просмотреть предложение на av.by</a>-->
+<!--</div>-->
+<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+<!-- ---------------------------------------------------------------------------------------------------------- -->
+
+<!--<div class="main_block_card clearfix">-->
+<!--    <div class="image_params_block">-->
+
+<!--        <div class="image_block">-->
+
+
+<!--            -->
+<!--        </div>-->
+
+<!--    </div>-->
+<!--    <div class="params_block">-->
+<!--            параметры-->
+<!--        </div>-->
+<!--    <div class="description_block">-->
+<!--        описание (снизу под 2 блоками)-->
+<!--    </div>-->
+<!--    <p>добавить ссылку на av.by</p>-->
+<!--</div>-->
+
+
+
+
+
+
+
+{% endblock %}

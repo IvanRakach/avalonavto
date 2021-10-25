@@ -1,0 +1,193 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Продажа {{ auto_offer.auto_brand_title_field }} {{ auto_offer.auto_model_title_field }}{% endblock %}
+
+{% block main_content %}
+<br>
+<h3 class="auto_import_anchor"> </h3>
+
+<div class="main_block_card clearfix">
+    <div class="backgroundclass clearfix">
+        <div class="item_img_block_main">
+            <div class="item_img_block clearfix">
+
+                <div class="fotorama"
+                     data-keyboard="true"
+                     data-swipe="true"
+                     data-shadows="true"
+                     data-allowfullscreen="true"
+                     data-nav="thumbs"
+                     data-loop="true">
+
+                    {% if auto_offer.auto_image_field_main %}
+                        <img src="{{ auto_offer.auto_image_field_main.url }}">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_2 %}
+                        <img src="{{ auto_offer.auto_image_field_2.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_3 %}
+                        <img src="{{ auto_offer.auto_image_field_3.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_4 %}
+                        <img src="{{ auto_offer.auto_image_field_4.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_5 %}
+                        <img src="{{ auto_offer.auto_image_field_5.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_6 %}
+                        <img src="{{ auto_offer.auto_image_field_6.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_7 %}
+                        <img src="{{ auto_offer.auto_image_field_7.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_8 %}
+                        <img src="{{ auto_offer.auto_image_field_8.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_9 %}
+                        <img src="{{ auto_offer.auto_image_field_9.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_10 %}
+                        <img src="{{ auto_offer.auto_image_field_10.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_11 %}
+                        <img src="{{ auto_offer.auto_image_field_11.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_12 %}
+                        <img src="{{ auto_offer.auto_image_field_12.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_13 %}
+                        <img src="{{ auto_offer.auto_image_field_13.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_14 %}
+                        <img src="{{ auto_offer.auto_image_field_14.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_15 %}
+                        <img src="{{ auto_offer.auto_image_field_15.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_16 %}
+                        <img src="{{ auto_offer.auto_image_field_16.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_17 %}
+                        <img src="{{ auto_offer.auto_image_field_17.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_18 %}
+                        <img src="{{ auto_offer.auto_image_field_18.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_19 %}
+                        <img src="{{ auto_offer.auto_image_field_19.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_image_field_20 %}
+                        <img src="{{ auto_offer.auto_image_field_20.url }}" alt="">
+                    {% endif %}
+                    {% if auto_offer.auto_video_field_youtube %}
+                        <a href="{{ auto_offer.auto_video_field_youtube }}">Video</a>
+                    {% endif %}
+                    {% if auto_offer.auto_video_field_load %}
+                        <a href="{{ auto_offer.auto_video_field_load.url }}">Video</a>
+                    {% endif %}
+                </div>
+<!--                <img src="{{ auto_offer.auto_image_field_main.url }}">-->
+
+            </div>
+        </div>
+        <div class="item_params_block clearfix">
+            <div class="item_params_block_details clearfix">
+                <h3><strong>Технические характеристики</strong></h3>
+                {% if auto_offer.auto_brand_title_field %}
+                <span class="sel_opacity">Марка: {{ auto_offer.auto_brand_title_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if auto_offer.auto_model_title_field %}
+                <span class="sel_opacity">Модель: {{ auto_offer.auto_model_title_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if auto_offer.auto_type %}
+                <span class="sel_opacity">Класс: {{ auto_offer.auto_type }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if auto_offer.fuel_type_field %}
+                <span class="sel_opacity">Вид топлива: {{ auto_offer.fuel_type_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if auto_offer.eng_vol_field %}
+                <span class="sel_opacity">Объем двигателя: {{ auto_offer.eng_vol_field }} см<sup>3</sup></span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if auto_offer.auto_mileage_field %}
+                <span class="sel_opacity">Пробег: {{ auto_offer.auto_mileage_field }} км.</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if auto_offer.transmission_field %}
+                <span class="sel_opacity">Трансмиссия: {{ auto_offer.transmission_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if auto_offer.auto_release_date_field %}
+                <span class="sel_opacity">Год выпуска: {{ auto_offer.auto_release_date_field }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+                {% if auto_offer.auto_VIN_vehicle %}
+                <span class="sel_opacity">VIN номер: {{ auto_offer.auto_VIN_vehicle }}</span>
+                <hr class="item_params_block_details_line">
+                {% endif %}
+            </div>
+
+        </div>
+
+        <hr class="item_line">
+        <div class="item_description_block clearfix">
+
+            {% if auto_offer.auto_description_field %}
+                <h3><strong>Описание</strong></h3>
+                <div>{{ auto_offer.auto_description_field|linebreaks }}</div>
+            {% endif %}
+        </div>
+
+        <div class="item_params_block_prices clearfix">
+            <h3><strong>Стоимость</strong></h3>
+            {% if auto_offer.auto_price_BYN_field %}
+            <span class="sel_opacity">Цена в BYN: {{ auto_offer.auto_price_BYN_field }} бел.руб.</span>
+            {% endif %}
+
+            <br>
+
+            {% if auto_offer.auto_price_USD_field %}
+            <span class="sel_opacity">Цена в USD: ≈ {{ auto_offer.auto_price_USD_field }} $.</span>
+            {% endif %}
+        </div>
+
+        <div class="item_params_block_location clearfix">
+            <h3><strong>Расположение</strong></h3>
+            <p class="sel_opacity">{{ auto_offer.auto_location_field }}</p>
+        </div>
+
+        <div class="item_params_block_contacts clearfix">
+            <h3><strong>Контакты</strong></h3>
+
+            {% if auto_offer.auto_contacts_field %}
+            <p class="sel_opacity"><a href="tel:{{ auto_offer.auto_contacts_field }}">{{ auto_offer.auto_contacts_field }}</a></p>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+<div class="feedback_home_info_link">
+    <a href="{{ auto_offer.auto_link_field }}"><button class="feedback_home_info_link_btn">
+    <span>Просмотреть предложение на av.by</span></button></a>
+</div>
+<br>
+<!--<div>-->
+<!--    <a href="{{ auto_offer.auto_link_field }}">Просмотреть предложение на av.by</a>-->
+<!--</div>-->
+<!--<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>-->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+
+
+
+<!-- ------------------------------------------------------------------------------------------- -->
+{% endblock %}

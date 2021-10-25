@@ -1,0 +1,4493 @@
+@charset "UTF-8";
+*{
+    padding: 0;
+    margin: 0;
+    font-family: "Gill Sans", sans-serif;
+}
+.clearfix{ /* чтобы 1 блок не налазил на другой */
+    /*clear: both;*/
+    content: "";
+    display: table;
+    margin-bottom: 15px;
+}
+header{
+    background: #333; /* тут добавил цвет #333 rgba(7,7,7, 0.6)*/
+    height: 70px;
+    color: #fff;
+    position: fixed;
+    z-index: 120;
+    width: 100%;
+}
+footer{
+    background: #333;
+    color: #fff;
+    width: 100%;
+    /*text-align: center;*/
+}
+
+.main-top{
+    max-width: 100%; /* 1166px поменял на 100% */
+    margin: 0 auto; /* margin: top-bottom-right-left */
+
+}
+.header-t{
+    padding: 15px 0 15px 0; /* padding: top-right-bottom-left */
+
+}
+.avalon-auto-logo{
+    float: left;
+    /*width: 100px;
+    height: 100px;*/
+}
+.telephone{
+    float: right;
+}
+.register{
+    float: right;
+}
+.telephone p{
+    color: #fff;
+    float: left;
+    font-size: 0.75em; /* размер шрифта */
+    font-weight: 700; /* жирнее шрифт */
+    vertical-align: middle;
+}
+.telephone p img{ /* картника перед номером телефона */
+    width: 32px;
+    height: 32px;
+    margin-left: 7px; /* отталкиваем иконку от номера телефона */
+    vertical-align: middle; /* текст и картинка друг за другом */
+}
+
+header img {
+    display: flex;
+    justify-content: left;  /* center */
+    width: 180px;
+    height: 70px;
+    display: block;
+    top: 1px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.our-benefits{
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto
+}
+
+
+body{
+    /*display: flex;*/
+    height: 100%;
+    /*justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    flex-direction: row;*/
+}
+
+main{
+    background: #f2f2f2; /* #f2f2f2 */
+    min-height: calc(100vh - 80px);
+}
+
+/* -------------- header меню (начало) -------------- */
+.main-top-header-menu{
+    max-width: 100%;
+    margin: 0 auto; /* margin: top-bottom-right-left */
+
+}
+
+.header-menu{
+    /*background: #333;*/
+    padding: 1.5px 0;
+}
+
+.header-menu-middle-3 article{
+    margin: 0 auto ;
+    display: inline; /* display: block; */
+    border: none; /* 1px solid #d3d3d2 */
+    width: 30%; /* 22.32% */
+    margin-left: 1.5%; /* 3.55%/2 */
+    margin-right: 1.5%; /* 3.55%/2 */
+    float: left;
+}
+.phones, phones li{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.phones{
+    text-align: center; /* пункты и текст горизонтально по центру */
+    margin-top: 22px; /* 3.9% */
+}
+
+.phones li{
+    display: inline-block; /* расположить пункты горизонтально */
+    /* display: block; /* ссылка растягивается на весь пункт li */
+    text-align: center; /* текст горизонтально по центру */
+
+}
+.phones li a{
+    display: inline-block;
+    /*padding: 25px 7px;*/
+    margin-left: 5px;
+    color: #fff;
+    font-size: 120%;
+    /*background-color: lightblue;*/
+    /* text-decoration: none;   --- убирает подчеркивание ссылки */
+}
+.phones a:hover{
+    color: #00a8ff; /* фон пунктов при наведении */
+    text-decoration: none;
+}
+
+.position-registration p{
+    display: inline-block;
+    width: 100%;
+    text-align: right;
+    /*margin: 15px auto;*/
+    /*padding: 20px 7px;*/
+    padding-top: 20px;
+    padding-bottom: 0px;
+    padding-right: 5px;
+    margin-bottom: 0px;
+    font-size: 15px;
+    float: right;
+    /*background-color: red;*/
+}
+.position-registration p a{
+    color: #fff;
+    font-size: 120%;
+}
+.position-registration p a:hover{
+    color: #00a8ff; /* фон пунктов при наведении */
+    text-decoration: none;
+}
+
+/* СКРЫТЫЙ БЛОК article ДЛЯ ТЕЛЕФОНОВ С LAYOUT (НАЧАЛО) */
+.phones-hidden li a img{
+    width: 12px;
+    height: 12px;
+    float: left;
+    margin-top: 5.5px;
+    margin-right: 5px;
+}
+.main-phones{
+    display: none;
+}
+.phones-hidden{
+    text-align: center; /* пункты и текст горизонтально по центру */
+    margin-top: 20px; /* 3.9% */
+}
+.phones-hidden li{
+    display: inline-block; /* расположить пункты горизонтально */
+    text-align: center; /* текст горизонтально по центру */
+}
+.phones-hidden li a{
+    display: inline-block;
+    margin-left: 5px;
+    color: #fff;
+    font-size: 120%;
+    /* text-decoration: none;*/
+}
+.phones-hidden a:hover{
+    color: #00a8ff;
+    text-decoration: none;
+}
+/* СКРЫТЫЙ БЛОК article ДЛЯ ТЕЛЕФОНОВ С LAYOUT (КОНЕЦ) */
+
+/* -------------- header меню (конец) -------------- */
+
+
+/* -------------- Стили для слайдера 1 -------------- */
+/* margin: top-bottom-right-left */
+/* padding: top-right-bottom-left */
+.swiper-container {
+    /*width: 80%;
+    height: 100%;*/
+    width: 100%;
+    height: 100%;
+    padding: 70px 0 0 0; /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+    /*margin-left: 3%;
+    /*margin-right: 0.1%;*/
+    overflow: hidden;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+/* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+}
+.swiper-button-next{
+    padding-top: 0px;
+}
+/* -------------- /Стили для слайдера 1 -------------- */
+
+/* customs_calculator */
+/* margin: top-bottom-right-left */
+/* padding: top-right-bottom-left */
+.customs_calculator_block{
+    max-width: 1090px;
+    height: 535px;
+    margin: 0 auto 5px auto;
+    background-color: #fff;
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+}
+
+
+.customs_calculator_block h3{
+    color: #040546;
+}
+.customs_calculator_block h5{
+    color: #040546;
+}
+.customs_calculator_block hr{
+    width: 50%;
+    height: 2px;
+    margin: 15px auto;
+    border: 0;
+    background: linear-gradient(to right, rgba(0,0,35,0)0%, rgba(0,0,35,0.7)50%, rgba(0,0,35,0)100%)
+}
+label {
+    font-weight: normal !important;
+}
+.customs_calculator_block_1{
+    /*font-family: sans-serif;*/
+    font-weight: normal;
+    width: 44.5%;
+    height: 359.5px;
+    /*margin-top: 0.625em;*/
+    background-color: #fff;
+    float: left;
+    margin-right: 5%;
+    margin-left: 3%;
+    border: 1px solid lightgrey;
+    color: #040546;
+}
+
+.customs_calculator_block_1_inputs{
+    padding: 0 10px;
+}
+
+.customs_calculator_block_2{
+    width: 44.5%;
+    height: 359.5px;
+    background-color: #fff;
+    float: left;
+    margin: 0 auto;  /* 24.5% */
+    /*font-size: 20px;
+    font-family: sans-serif;*/
+	/*font-weight: 400;*/
+    border: 1px solid lightgrey;
+}
+.customs_calculator_block_2_inner{
+    /*vertical-align: middle;
+    /*text-align: center;
+    vertical-align: middle;  /* ..по вертикали */
+    font-size: 25px;
+    /*vertical-align: middle;*/
+    line-height: 1.25;
+    color: #040546;
+    padding: 35% 17% 50% 20%;
+}
+.calculator_numbers_input{
+    width: 225px;
+    border: 1px solid lightblue;
+}
+/* margin: top-bottom-right-left */
+/* padding: top-right-bottom-left */
+.input_data{
+    margin: 0 5px;
+}
+.input-btn{
+    width:175px;
+	height:50px;
+	background: #040546; /* #7cc576 */
+	border-radius: 4px;
+	color: #fff;
+	font-size: 14px;
+	text-transform: uppercase;
+	font-family: sans-serif;
+	font-weight: 400;
+	border: 0px;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	margin: 10px 10px 25px 25px;
+	float: right;
+	margin-right: 1.825em;
+}
+.input-btn:hover{
+    background: #00a8ff;
+}
+
+
+
+/* -------------- основной контейнер div (его размеры) -------------- */
+.container1{
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0px 15px;
+    display: flex;
+    justify-content: center;
+}
+.container2{
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0px 15px;
+    display: flex;
+    justify-content: center;
+}
+/* -------------- endblock container div -------------- */
+
+
+
+/* -------------- размер изображений на главной странице в body -------------- */
+.main_navigation img{
+    display: block; /* сделаем гибкими только те изображения, которые расположены в элементе с классом main_navigation */
+    height: auto;
+    min-width: 100px;
+    max-width: 100%; /* для итоговых картинок */
+    /*max-width: 350px; /* <<<------------ для промежуточных картинок */
+    min-height: 50px;
+    max-height: 100%; /* для итоговых картинок */
+    /*max-height: 250px; /* <<<------------ для промежуточных картинок */
+    margin-left: auto; /* дополнительно их выровняем по центру */
+    margin-right: auto; /* дополнительно их выровняем по центру */
+}
+/* -------------- endblock размер изображений на главной странице в body -------------- */
+
+/* -------------- надписи на картинках на главной странице -------------- */
+.scale{
+    transition: 1s; /* Время эффекта */
+    display: block;
+}
+.scale:hover {
+    transform: scale(1.05); /* Увеличиваем масштаб */
+    /*background:#53ea93;*/
+}
+
+.container1_1{
+    position:relative;
+    max-width: 100%; /* Maximum width */
+    margin: 0 auto; /* Center it */
+    /*border: 1px solid darkblue;*/
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    background-color: #fff; /* убирааем небольшую полоску внизу блока в цвет блока main */
+}
+
+.container1_2{
+    position:relative;
+    max-width: 100%; /* Maximum width */
+    margin: 0 auto; /* Center it */
+    /*border: 1px solid darkblue;*/
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    background-color: #fff; /* убирааем небольшую полоску внизу блока в цвет блока main */
+}
+
+.container2_1{
+    position:relative;
+    max-width: 100%; /* Maximum width */
+    margin: 0 auto; /* Center it */
+    /*border: 1px solid darkblue;*/
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    background-color: #fff; /* убирааем небольшую полоску внизу блока в цвет блока main */
+}
+
+.container2_2{
+    position:relative;
+    max-width: 100%; /* Maximum width */
+    margin: 0 auto; /* Center it */
+    /*border: 1px solid darkblue;*/
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    background-color: #fff; /* убирааем небольшую полоску внизу блока в цвет блока main */
+}
+
+.text-block{
+    position: absolute; /* Position the background text */
+    top: 0; /* At the bottom. Use top:0 to append it to the top */
+    background: rgba(1, 2, 70, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 100%; /* Full width */
+    padding: 20px; /* Some padding */
+}
+.text_in_block{
+    text-transform: uppercase;
+	font-weight: 525;
+	/*font-size: 25px;*/
+    /*vertical-align: middle;*/
+    /*line-height: 1.25;*/
+    /*margin: 0 auto;
+    padding: auto 0;*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+/* -------------- endblock надписи на картинках на главной странице -------------- */
+
+/* -------------- ПРЕИМУЩЕСТВА РАБОТЫ С НАМИ -------------- */
+/* margin: top-bottom-right-left */
+/* padding: top-right-bottom-left */
+/*h3{
+    color: #020548;
+    font-weight: 700;
+}*/
+.main-middle3 h3{
+    color: #040546;
+}
+.main-middle3 hr{
+    width: 50%;
+    height: 2px;
+    margin: 15px auto;
+    border: 0;
+    background: linear-gradient(to right, rgba(0,0,35,0)0%, rgba(0,0,35,0.7)50%, rgba(0,0,35,0)100%)
+}
+.main-middle3 article img{
+    margin: 0 auto 18px auto; /* margin: 0 auto 18px auto; */
+    display: block;
+
+}
+
+.main-middle3 article:hover{
+    opacity: 0.5;
+}
+
+/* margin: top-bottom-right-left */
+/* padding: top-right-bottom-left */
+.main-middle3{
+    max-width: 100%; /* ширина рабочего блока - 1200px */
+    margin: 10px auto 45px auto; /* выравнивание по центру */
+    /*background-color: yellow;  /* yellow; */
+    background-color: #f2f2f2;
+}
+.main-middle3-part{
+    /*background-color: lightgreen; /*  lightblue;  #f2f2f2*/
+    max-width: 90%; /* 1166px */
+    margin: 15px auto 25px auto;
+
+}
+
+.main-middle3-part article{
+    width: 30%;
+    height: 220px;
+    /*display: block;*/
+    margin: 0% auto 1% 1%; /* margin: 0 auto 18px auto; */
+    /*background-color: #fff; /*  lightgreen;  */
+    float: left;
+    /*margin-top: 25px;*/
+    /*margin-right: 1.895%;
+    margin-left: 1.0%;*/
+
+}
+.main-middle3-part article:last-child{  /* убираем пробел справа */
+    margin-right: 0;  /* отступ от блока справа */
+}
+.benefits-text{
+    color: #040546;
+    display: block; /* если будут ссылки, то нужно, чтобы они выравнялись в столбик*/
+    text-decoration: none;
+    font-size: 14px; /* 1.15em */
+    text-align: center;
+}
+
+/*.our-benefits-list{
+    color: #020548;
+}*/
+
+
+
+/* -------------- карта -------------- */
+.where_we{
+    color: #040546;
+    width: 50%;
+    height: 2px;
+    margin: 15px auto;
+    border: 0;
+    background: linear-gradient(to right, rgba(0,0,35,0)0%, rgba(0,0,35,0.7)50%, rgba(0,0,35,0)100%)
+}
+
+.form-with-map{
+    position: relative;
+}
+.avalon-auto-form{
+    position:absolute;
+    width: 300px;
+    bottom: 220px;
+    margin-left: 250px;
+    background: rgba(1,2,28,0.5);
+    border-radius: 4px;
+    padding: 28px 28px 24px 28px;
+    /*box-sizing:border-box;*/
+}
+.avalon-auto-form p{
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 0 auto; /* 20% */
+
+}
+/* -------------- footer -------------- */
+/* margin: top-bottom-right-left */
+/* padding: top-right-bottom-left */
+.foot{
+    background: #333;
+    padding: 38px 0;
+    max-width: 100%;
+    /*height: 480px;  /* ЗАФИКСИРОВАЛ РАЗМЕР FOOTER !!!!!!!!!!!!!!!!!!! */
+    /*padding: 120px 0 0 0;
+    /*margin-bottom: -0.325em;*/
+    /*margin-bottom: 0px;
+    bottom: 0px;
+    position: fixed;
+    width: 100%;*/
+    margin-bottom: -5%;
+}
+.foot h2{
+    color: #fff;
+    font-size: 1.40625em; /* 1.40625em */
+    margin-bottom: 9px; /* button*/
+    text-transform: uppercase;
+}
+.foot-text{
+    color: #fff;
+    /*display: block; /* если будут ссылки, то нужно, чтобы они выравнялись в столбик*/
+    text-decoration: none;
+    font-size: 0.975em;/* убираем линию под ссылкой */
+
+}
+.foot-text-form{
+    color: black;
+    text-decoration: none;
+    font-size: 0.875em;/* убираем линию под ссылкой */
+}
+/* .foot-text:hover{ /* при наведении на ссылку происходит выделение (только нужно */
+   /* color: #00a8ff; /* к селектору тег "a" дописать, а то весь столбец выделяется) */
+    /*text-decoration: underline;
+}*/
+
+.middle4-article article{
+    border: none; /* 1px solid #d3d3d2 */
+    width: 19%; /* 22.32% */
+    margin-left: 3%; /* 3.55%/2 */
+    margin-right: 3%; /* 3.55%/2 */
+    float: left;
+}
+.form-control-mine{
+    width: 100%;
+    height: 30px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+.form-control-mine-content{
+    width: 100%;
+    height: 100px;
+    border-radius: 4px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+
+.foot p{
+    color: #d3d3d2;
+    display:block;
+}
+.foot-name{
+    width: 100%;
+    padding: 6px 15px;
+    margin-bottom: 14px; /* font-size: 0.75em; */
+    box-sizing: border-box;
+    border: none;
+}
+.foot-email{
+    width: 100%;
+    padding: 6px 15px;
+    margin-bottom: 14px;
+    box-sizing: border-box;
+    border: none;
+}
+.foot-textarea{
+    width: 100%;
+    padding: 6px 15px;
+    margin-bottom: 14px;
+    box-sizing: border-box;
+    border: none;
+}
+.submit-button{
+    color: #333;
+    background-color: #d3d3d2;
+    /*width: auto;*/
+    width: 100%;
+    padding: 6px 15px;
+    margin-bottom: 14px;
+    border: none;
+    cursor: pointer; /* для курсора */
+    /* ------------------------------------------------ */
+    background: #040546; /* #7cc576 */
+	border-radius: 4px;
+	color: #fff;
+	/*font-size: 14px;*/
+	/*text-transform: uppercase;*/
+	font-family: sans-serif;
+	font-weight: 400;
+	border: 0px;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	/*margin: 10px 10px 25px 25px;*/
+	float: right;
+	/*margin-right: 1.825em;*/
+}
+.submit-button:hover{
+    background: #00a8ff;
+}
+
+/* -------------- отзывы о компании -------------- */
+.feedback-comp-link{
+    color: #d3d3d2;
+    text-decoration: none;
+
+}
+.feedback-comp-link:hover{
+    color: #00a8ff;
+    text-decoration: none;
+}
+/* -------------- /отзывы о компании -------------- */
+
+.social-networks{
+    display: block;
+    width: 97%;
+    margin-left: 3%;
+
+}
+
+.foot-text-social-networks{
+    color: #fff;
+    font-size: 1.40625em; /* 1.40625em */
+    margin-bottom: 9px; /* button*/
+    text-transform: uppercase;
+    /*color: #fff;
+    float: justify;*/
+}
+/*.social-networks{
+    border: none;
+    width: 50%;
+    height: 30%;
+    margin-top: 320px;
+    padding: 25px;
+    position: relative;
+    top: -75px;
+    left: 30px;
+}*/
+
+
+/* ФОРМА НА КАРТЕ */
+.main-top article{  /* подумать: надо ли? */
+    max-width:1200px;
+    margin: 0 auto;
+}
+.avalon-auto-form-footer{
+    position:absolute;
+    width: 100px;
+    /*bottom: 220px;*/
+    /*margin-left: 250px;*/
+    background: rgba(1,2,28,0.5);
+    border-radius: 4px;*/
+    padding: 28px 28px 24px 28px;
+    /*box-sizing:border-box;*/
+}
+/* *** */
+
+/* ***-------***************-----------------*****************----------------****************-------- */
+/* черновик */
+.contact-avalon{
+    position: relative;
+
+}
+.contact-avalon-map{
+    position:absolute;
+    /*justify-content: center;*/
+    /*margin: 0 auto;*/
+    z-index:1;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    left: 250px;
+}
+.contact-form{
+    position:absolute;
+    justify-content: center;
+    /*margin-left: auto;
+    margin-right: auto;*/
+    width: 300px;
+    background: rgba(0,128,0,0.5);
+    padding: 10px;
+    margin-bottom: -100px;
+    z-index:2;
+    left: 250px;
+}
+
+/* -------------- endblock карта -------------- */
+
+/* -------------- анимация кнопок на главной странице -------------- */
+
+/*.main_img_position {
+    position: relative;
+    padding: 15px 35px;
+    margin: 15px;
+    background: darkblue;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 1px;
+    overflow: hidden;
+    transition: 0.5s;
+    animation: anim 4s linear infinite;
+}
+
+
+.main_img_position:nth-child(1):hover {
+    background: #fff;
+    color: darkred;
+}
+
+.main_img_position:nth-child(2):hover {
+    background: #fff;
+    color: darkred;
+}
+
+.main_img_position:nth-child(3):hover {
+    background: #fff;
+    color: darkred;
+}
+
+.main_img_position:nth-child(4):hover {
+    background: #fff;
+    color: darkred;
+}
+
+.main_img_position::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
+}
+
+.main_img_position:nth-child(1):before{
+    background:linear-gradient(20deg,
+    transparent, #FFF, transparent);
+}
+
+.main_img_position:nth-child(2):before{
+    background:linear-gradient(20deg,
+    transparent, #FFF, transparent);
+}
+
+.main_img_position:nth-child(3):before{
+    background:linear-gradient(20deg,
+    transparent, #FFF, transparent);
+}
+
+.main_img_position:nth-child(4):before{
+    background:linear-gradient(20deg,
+    transparent, #FFF, transparent);
+}
+
+.main_img_position:hover::before{
+    left: 100%;
+}*/
+
+/* 1. **********************************************************************************************/
+/* Included color classes..
+  .red
+  .blue
+  .yellow
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,800);
+figure.snip1104 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  min-width: 500px; /* here*/
+  max-width: 310px;
+  min-height: 300px;
+  width: 100%;
+  background: #000000;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+/* надо */
+figure.snip1104 * {
+  box-sizing: border-box;
+  transition: all 0.4s ease-in-out;
+}
+/* надо */
+figure.snip1104 img {
+  max-width: 100%;
+  position: relative;
+  opacity: 0.4;
+}
+
+figure.snip1104 h2 {
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  display: inline-block;
+  background: #040546;
+  transform: skew(-10deg) rotate(-10deg) translate(0, -50%);
+  padding: 12px 5px;
+  margin: 0;
+  top: 50%;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+figure.snip1104 h2 span {
+  font-weight: 800;
+}
+
+figure.snip1104:before {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  content: '';
+  background: #ffffff;
+  position: absolute;
+  transition: all 0.3s ease-in-out;
+  transform: rotate(110deg) translateY(-50%);
+}
+
+figure.snip1104 a {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+figure.snip1104.blue {
+  background: #123851;
+}
+
+figure.snip1104.blue h2 {
+  background: #0a212f;
+}
+
+figure.snip1104.red {
+  background: #581a14;
+}
+
+figure.snip1104.red h2 {
+  background: #36100c;
+}
+
+figure.snip1104.yellow {
+  background: #7f5006;
+}
+
+figure.snip1104.yellow h2 {
+  background: #583804;
+}
+
+figure.snip1104:hover img,
+figure.snip1104.hover img {
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+figure.snip1104:hover h2,
+figure.snip1104.hover h2 {
+  -webkit-transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
+  transform: skew(-10deg) rotate(-10deg) translate(-150%, -50%);
+}
+
+figure.snip1104:hover:before,
+figure.snip1104.hover:before {
+  transform: rotate(110deg) translateY(-150%);
+}
+/* 2. **********************************************************************************************/
+/* не надо */
+.grid {
+  position: relative;
+  /*margin: 0 auto;*/ /*отступ от левой стороны */
+  /*padding: 1em 0 4em;*/ /*отступ от верха стороны */
+  /*max-width: 1000px; /*еще 1 отступ */
+  list-style: none;
+  text-align: center;
+}
+
+/* Common style */
+.grid figure {
+  position: relative;
+  /*float: left;*/
+  overflow: hidden;
+  margin: 10px 1%; /* отступ картинок друг от друга */
+  min-width: 500px;
+  max-width: 500px;
+  mim-height: 300px; /*max*/
+  /*width: 48%;*/
+  background: #040546; /* #3085a3 */
+  /*text-align: center;*/
+  cursor: pointer;
+}
+
+/* прозрачность шторки */
+.grid figure img {
+  position: relative;
+  display: block;
+  min-height: 100%;
+  max-width: 100%;
+  opacity: 0.7;
+}
+
+.grid figure figcaption {
+  padding: 2em;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.25em;
+
+  backface-visibility: hidden;
+}
+/* не надо */
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+  pointer-events: none;
+}
+/* надо */
+.grid figure figcaption,
+.grid figure figcaption > a {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure figcaption > a {
+  z-index: 1000;
+  text-indent: 200%;
+  white-space: nowrap;
+  font-size: 0;
+  opacity: 0;
+}
+
+.grid figure h2 {
+  word-spacing: -0.15em;
+  font-weight: 300;
+}
+
+.grid figure h2 span {
+  font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+  margin: 0;
+}
+
+.grid figure p {
+  letter-spacing: 1px;
+  font-size: 68.5%;
+}
+
+
+/*---------------*/
+/*****************/
+/*---------------*/
+
+/* темная штрорка */
+figure.effect-sadie figcaption::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(top, rgba(72,76,97,0) 0%, rgba(72,76,97,0.8) 75%);
+  background: linear-gradient(to bottom, rgba(72,76,97,0) 0%, rgba(72,76,97,0.8) 75%);
+  content: '';
+  opacity: 0;
+
+  transform: translate3d(0,50%,0);
+}
+
+figure.effect-sadie h2 {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  color: #484c61;
+
+  transition: transform 0.35s, color 0.35s;
+
+  transform: translate3d(0,-50%,0);
+}
+
+figure.effect-sadie figcaption::before,
+figure.effect-sadie p {
+
+  transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-sadie p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2em;
+  width: 100%;
+  opacity: 0;
+
+  transform: translate3d(0,10px,0);
+}
+
+figure.effect-sadie:hover h2 {
+  color: #fff;
+
+  transform: translate3d(0,-50%,0) translate3d(0,-40px,0);
+}
+
+figure.effect-sadie:hover figcaption::before ,
+figure.effect-sadie:hover p {
+  opacity: 1;
+
+  transform: translate3d(0,0,0);
+}
+/**********************************************************************************/
+/* -------------- endblock анимация кнопок на главной странице -------------- */
+
+/* Отображение отзывов */
+.alert-warning{
+    float: left;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+}
+
+
+/**********************************************************************************/
+/* -------------- endblock анимация кнопок на главной странице -------------- */
+/**********************************************************************************/
+td{
+    padding: 3px; /* Поля вокруг содержимого таблицы */
+    border: 1px solid black; /* Параметры рамки */
+}
+/**********************************************************************************/
+/* -------------- СТРАНИЦА auto_import -------------- */
+/**********************************************************************************/
+.auto_import_anchor{
+    padding: 70px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 20px;
+    color: #040546;
+}
+.auto_import_block{
+    width: 100%; /* 1200px */
+    min-height: 70vh; /* 1000px */
+    margin: 0px auto;
+    padding: 35px auto 35px auto;
+    /*display: flex;*/
+    justify-content: center;
+    margin-top: 30px;
+    color: #040546;
+    /*margin-bottom: 100px;*/
+    /*background-color: orange;*/
+}
+.auto_import_block_text{
+    width: 80%; /* 1200px */
+    margin: 0 auto;
+    /*min-height: 70vh;*/
+    /*background-color: lightyellow;*/
+}
+.auto_import_block_introductory_text{
+    width: 100%;
+    float: left;
+    padding: 15px 15px 15px 15px;
+    /*background-color: lightgreen;*/
+}
+.auto_import_block_BP{
+    width: 100%;
+    /*float: left;*/
+    padding: 15px 15px 15px 15px;
+    text-align: justify;
+    /*background-color: lightblue;*/
+}
+.auto_import_block_BP li{
+    list-style-type: none;
+    /*padding: 3px 0 3px 15px; /* padding: 3px 0 3px 15px; */
+    margin: 0 auto;
+    /*background-color: orange;  /* background-color: orange; */
+}
+
+/* --------------------------- auto_import (имеющиеся предложения) --------------------------- */
+.auto_import_block_available_auto{
+    max-width: 100%; /* ширина рабочего блока - 1200px */
+    height: 70vh;
+    background-color: #f2f2f2;
+    /*background-color: yellow;  /* yellow; */
+    /*margin: 10px auto 45px auto; /* выравнивание по центру */
+}
+.available_auto_list{
+    max-width: 80%; /* 1200px */
+    min-height: 250px;
+    margin: 0 auto;
+    background-color: #f2f2f2; /*  lightblue;  #f2f2f2*/
+    /*background-color: red;  /* red; */
+}
+
+.available_auto_list article{
+    width: 25%;
+    height: 415px;
+    float: left;
+    margin: 1% 4% 1.5% 4%;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    /*background-color: lightgreen; /*  lightgreen;  */
+}
+.available_auto_list article:last-child{  /* убираем пробел справа */
+    margin-right: 0;  /* отступ от блока справа */
+}
+
+/**********************************************************************************/
+/* -------------- СТРАНИЦА moto_import (НАЧАЛО) -------------- */
+/**********************************************************************************/
+.moto_import_anchor{
+    padding: 70px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 20px;
+    color: #040546;
+}
+.moto_import_block{
+    width: 100%; /* 1200px */
+    min-height: 70vh; /* 1000px */
+    margin: 0px auto;
+    padding: 35px auto 35px auto;
+    /*display: flex;*/
+    justify-content: center;
+    margin-top: 30px;
+    color: #040546;
+    /*margin-bottom: 100px;*/
+    /*background-color: orange;*/
+}
+.moto_import_block_text{
+    width: 80%; /* 1200px */
+    /*min-height: 70vh;*/
+    margin: 0 auto;
+    /*background-color: lightyellow;*/
+}
+.moto_import_block_introductory_text{
+    width: 100%;
+    float: left;
+    padding: 15px 15px 15px 15px;
+    text-align: justify;
+    /*background-color: lightgreen;*/
+}
+.moto_import_block_BP{
+    width: 100%;
+    /*float: left;*/
+    padding: 15px 15px 15px 15px;
+    text-align: justify;
+    /*background-color: lightblue;*/
+}
+.moto_import_block_BP li{
+    list-style-type: none;
+    /*padding: 3px 0 3px 15px; /* padding: 3px 0 3px 15px; */
+    margin: 0 auto;
+    /*background-color: orange;  /* background-color: orange; */
+}
+
+
+/* ------------- moto_import (имеющиеся предложения) ------------- */
+.moto_import_block_available_moto{
+    max-width: 100%; /* ширина рабочего блока - 1200px */
+    height: 70vh;
+    background-color: #f2f2f2;
+    /*background-color: yellow;  /* yellow; */
+}
+
+.available_moto_list{
+    max-width: 80%; /* 1200px */
+    min-height: 250px;
+    margin: 0 auto;
+    background-color: #f2f2f2; /*  lightblue;  #f2f2f2*/
+    /*background-color: red;  /* red; */
+}
+.available_moto_list article{
+    width: 25%;
+    height: 415px;
+    float: left;
+    margin: 1% 4% 1.5% 4%;
+    border: 1px solid black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    /*background-color: lightgreen; /*  lightgreen;  */
+}
+.available_moto_list article:last-child{  /* убираем пробел справа */
+    margin-right: 0;  /* отступ от блока справа */
+}
+
+.item_card_photo img{
+    width: 100%;
+    height: 250px;
+}
+.item_card_info{
+    width: 94.0%;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 2%;
+    /*float: left;*/
+    /*background-color: lightblue; /*  lightgreen;  */
+}
+item_card_info:hover{
+    opacity: 0.9;
+}
+.item_card_about{
+    width: 48.0%;
+    padding: 5px 5px 5px 5px;
+    float: left;
+    /*background-color: red;*/
+}
+
+.item_card_info__price{
+    width: 48.0%;
+    padding: 5px 5px 5px 5px;
+    float: left;
+    /*background-color: yellow;*/
+}
+.more_inf_btn_item_more{
+    width: 100px; /* 115 */
+	height: 23px;
+	float: left;
+	/*margin-left: 17%;*/
+	margin-top: 4%;
+	background-color: #040546;
+	border-radius: 4px;
+}
+.more_inf_btn_item_more:hover{
+    background-color: #00a8ff;
+}
+.more_inf_btn_item_more a{
+    text-decoration: none;
+    padding: 0 0 0 20%;
+    color: #fff;
+}
+.more_inf_btn_item_more a:hover{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/**********************************************************************************/
+/* -------------- СТРАНИЦА moto_import (КОНЕЦ) -------------- */
+/**********************************************************************************/
+/**********************************************************************************/
+/* -------------- СТРАНИЦА moto_service (НАЧАЛО) -------------- */
+/**********************************************************************************/
+.moto_service_anchor{
+    padding: 70px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 2%;
+    color: #040546;
+    text-shadow: 0 0 1px #040546, 0 0 0 rgba(0,0,0,0.1); /* Параметры тени */
+    /*border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+}
+/* margin: top-right-bottom-left */
+/* padding: top-right-bottom-left */
+.moto_services_background_image{
+    width: 100%;
+    height: 100vh;
+    color: #040546;
+    /*background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))*/
+    margin-bottom: 0px;
+}
+.moto_services_background_text_and_list{
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 2%;
+    /*background-color: lightblue;  /* background-color: lightyellow; */
+}
+
+
+.block_of_services_list{
+    width: 80%;
+    margin: 0 auto; /* margin: 0 auto; */
+    /*background-color: lightgreen;  /* background-color: lightblue; */
+}
+.block_of_services_list ul{
+    margin-left: -2%;
+    margin-top: 2.5%;
+    font-weight: 500;
+}
+.block_of_services_list li{
+    list-style-type: none;
+    padding: 3px 0 3px 15px; /* padding: 3px 0 3px 15px; */
+    margin: 0 auto;
+    /*background-color: orange;  /* background-color: orange; */
+}
+.text_block{
+    width: 90%;
+    margin: 0 auto;
+    text-align: justify; /* Выравнивание по ширине */
+    /*background-color: lightgreen;  /* background-color: lightgreen; */
+}
+/**********************************************************************************/
+
+.moto_safekeeping_anchor{
+    padding: 70px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 20px;
+    color: #040546;
+}
+#bg{
+    background-size: 100% 100%; /* 1800px 900px */
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+.moto_safekeeping_background_image{
+    width: 100%;
+    height: 100vh;
+    /*background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5))*/
+    margin-bottom: 0px;
+}
+.moto_safekeeping_main_block{
+    width: 90%;
+    min-height: 700px; /* 1000 px */
+    margin: 0 auto;
+    /*white-space: normal;
+    background-repeat: no-repeat;
+    overflow: hidden;*/
+    margin-bottom: 2%;
+    color: #040546;
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    text-align: justify; /* Выравнивание по ширине */
+    font-size: 15px;
+    /*background-color: red;  /* background-color: red; */
+}
+.moto_safekeeping_main_block div h3{
+    color: #040546;
+    text-shadow: 0 0 1px #040546, 0 0 0 rgba(0,0,0,0.1); /* Параметры тени */
+}
+.moto_safekeeping_block{
+    width: 96%;
+    margin: 0 2% 0 2%;
+    padding: 0 1.5% 0 1.5%;
+    /*background-color: lightyellow;  /* background-color: lightyellow; */
+}
+
+.moto_safekeeping_block ul{
+    list-style-type: none;
+    margin-left: -2%;
+    margin-top: 2.5%;
+    /*padding: 3px 0 3px 15px; /* padding: 3px 0 3px 15px; */
+}
+.moto_safekeeping_block li{
+    list-style-type: none;
+    font-weight: 500;
+    padding: 1px 0 1px 15px; /* padding: 3px 0 3px 15px; */
+}
+
+/* margin: top-right-bottom-left */
+/* padding: top-right-bottom-left */
+/**********************************************************************************/
+/* -------------- СТРАНИЦА about_us -------------- */
+/**********************************************************************************/
+.about_us_anchor{
+    padding: 70px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 2%;
+    color: #040546;
+    /*font-weight:400;*/
+}
+
+.about_us_block{
+    width: 100%; /* 1200px */
+    min-height: 100vh;
+    margin: 0px auto;
+    padding: 35px auto 35px auto;
+    /*display: flex;*/
+    justify-content: center;
+    margin-top: 30px;
+    color: #040546;
+    /*margin-bottom: 100px;*/
+    /*background-color: lightgreen;*/
+}
+.about_us_content{
+    width: 70%;
+    height: 250px;
+    margin: 0 auto;
+    text-align: justify; /* Выравнивание по ширине */
+    /*background-color: lightyellow;*/
+}
+.about_us_content_1{
+    width: 100%;
+    float: left;
+    padding: 15px 15px 15px 15px;
+    /*background-color: orange;*/
+}
+.about_us_content_2{
+    width: 100%;
+    float: left;
+    padding: 15px 15px 15px 15px;
+    /*background-color: lightblue;*/
+}
+.about_us_table_header{
+    text-align: center;
+    color: #040546;
+}
+.about_us_table{
+    width: 100%;
+    /*height:30%;*/
+    margin: 0px auto;
+    margin-bottom: 3%;
+    /*float: right;*/
+    /*margin-top: 250px;
+    /*margin-left: -1000px;*/
+    /*padding: 15px 15px 15px 15px;*/
+    /*background-color: red;*/
+}
+.about_us_table table{
+    margin: 0 auto;
+}
+.about_us_table table td{
+    padding-left: 0.7%;
+}
+.about_us_table tr td a{
+    text-decoration: none;
+}
+
+/**********************************************************************************/
+/* -------------- СТРАНИЦА private_room -------------- */
+/**********************************************************************************/
+.private_room{
+    /*background-color: lightyellow;*/
+    height: 750px;
+}
+.private_room_anchor{
+    padding: 120px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 25px;
+    color: #040546;
+}
+
+.private_room_table{ /* table */
+    display: block;
+    overflow: auto;
+    max-width: 100%;
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    background-color: #fff;
+    text-align: center;
+}
+.table_header{
+    background-color: lightyellow;
+}
+tr:hover{
+    background-color: lightblue;
+}
+td{
+    border: 1px solid;
+}
+.private_room_spacing_btwn_tables{
+    margin: 25px 5px auto auto;
+    font-weight: bold;
+    color: #040546; /* db */
+}
+/* margin: top-bottom-right-left */
+/* padding: top-right-bottom-left */
+
+
+/**********************************************************************************/
+/* -------------- СТРАНИЦА register -------------- */
+/**********************************************************************************/
+
+.register_anchor{
+    padding: 70px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 25px;
+    color: #040546;
+   /*font-weight:400;*/
+}
+.register_block_wrapper{
+    width: 100%;
+    /*min-height: 100vh;*/
+    margin: 0px auto;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    /*background-color: lightyellow;*/
+}
+.register_block{
+    margin-top: 2%;
+    max-width: 300px;
+    /*background-color: lightblue;*/
+}
+.register_block_wrapper div form p{
+    max-width: 100%;
+    height: 50px;
+    /*background-color: red;*/
+}
+.form-label{
+    display: block;
+}
+.form-control-register {
+    display: block;
+    min-width: 300px;
+    max-height: 25px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding-left: 5%;
+}
+
+.reg_btn{
+    width: 175px;
+	height: 25px;
+	background: #040546;
+	border-radius: 4px;
+	color:#fff;
+	font-size:14px;
+	text-transform:uppercase;
+	border:0px;
+	margin: 0px auto;
+	margin-left: 4em;
+	margin-top: 35px;
+}
+.reg_btn:hover{
+    background: #00a8ff;
+}
+
+
+/**********************************************************************************/
+/* -------------- СТРАНИЦА login -------------- */
+/**********************************************************************************/
+/* margin: top-bottom-right-left */
+/* padding: top-right-bottom-left */
+.login_anchor{
+    padding: 70px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 50px;
+    color: #040546;
+   /*font-weight:400;*/
+}
+.login_block_wrapper{
+    width: 100%;
+    /*min-height: 100vh;*/
+    margin: 0px auto;
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    /*background-color: lightyellow;*/
+}
+.login_block{
+    margin-top: 2%;
+}
+
+.login_block_wrapper div form p{
+    max-width: 100%;
+    height: 50px;
+    /*background-color: red;*/
+}
+.login_block_wrapper div form div{
+    padding-top: 5%;
+    /*background-color: red;*/
+}
+.log_btn{
+    width: 175px;
+	height: 25px;
+	background: #040546;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 14px;
+	text-transform:uppercase;
+	border: 0px;
+	margin: 0px auto;
+	/*margin-left: 2em;*/
+}
+.log_btn:hover{
+    background: #00a8ff;
+}
+.ftpswrd_btn{
+    display: inline-block;
+    min-width: 175px;
+	height: 25px;
+	background: #040546;
+	color: #fff;
+	font-size: 14px;
+	text-transform:uppercase;
+	text-decoration: none;
+	text-align: center;
+	border: 0px;
+	border-radius: 4px;
+	padding-top: 2px;
+}
+.ftpswrd_btn:hover{
+    background: orange;
+    text-decoration: none;
+    color: #fff;
+}
+.form-control-login {
+    min-width: 175px;
+    max-height: 25px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding-left: 7%;
+}
+
+
+/**********************************************************************************/
+/* -------------- СТРАНИЦА feedback_home -------------- */
+/**********************************************************************************/
+.feedback_home_anchor{
+    padding: 70px 0 0 0;
+    color: #040546;
+}
+.feedback_block{
+    width: 100%;
+    min-height: 700px;
+    margin-bottom: -0.5%;
+    /*background-color: lightyellow; /* background-color: lightyellow; */
+}
+.feedback_block_1 {
+    width: 17%;
+    height: auto;
+    float: left;
+    /*margin-right: 5%;
+    margin-left: 3%;*/
+    background-color: #fff; /* lightgreen --- #fff */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    margin-left: 1.5%;
+}
+
+.feedback_block_1 ul{
+    padding-top: 25px auto;
+}
+.feedback_block_1 ul li{
+    padding-top: 5px;
+}
+.feedback_block_1 ul li a{
+    color: #040546; /* #040546 */
+}
+.feedback_block_1 ul li a:hover{
+    color: #00a8ff;
+    text-decoration: none;
+}
+.selected{
+    color:#040546;
+    font-weight: bold;
+    /*font-size: 17px;*/
+}
+.selected:hover{
+    color: #00a8ff;
+    transform: scale(1.05); /* увеличение при наведении */
+}
+/* ------------ 2 БЛОК НА ДОМАШНЕЙ СТРАНИЦЕ НОВОСТЕЙ (С КОНТЕНТОМ И ОТЗЫВАМИ) ------------ */
+.feedback_block_2 {
+    width: 80%;
+    float: right;
+    background-color: #f2f2f2; /* lightblue --- #f2f2f2 */
+    height: auto;
+}
+
+.article_block{
+    min-width: 400px;
+    max-width: 700px;
+    margin: 15px auto;
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    background-color: #fff; /* убирааем небольшую полоску внизу блока в цвет блока main */
+}
+
+.article_block_date_category{
+    background-color: #040546; /* background-color: orange; !!!!!!!!!!!!!!!!!!!!! */
+    width: 100%;
+    height: 35px;
+    color: #fff;
+    padding: 5px 5px 0px 5px;
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    /*background-color: #fff; /* убирааем небольшую полоску внизу блока в цвет блока main */
+}
+.article_block_category{
+    width: 50%;
+    float: left;
+    /*background-color: red;  /* background-color: red; */
+}
+.article_block_date{
+    width: 50%;
+    text-align: right;
+    float: left;
+    /*background-color: orange;  /* background-color: orange; */
+}
+
+
+
+.feedback_home_info{
+    text-align: center;
+    /*padding: 1.5% 0 1.5% 0;*/ /* !!!!!!!! ОТСТУП ВЕРХНЕГО ТЕКСТА ОТ ГРАНИЦЫ 2 БЛОКА !!!!!!!! */
+    font-size: 17px;
+}
+.feedback_home_info_link{
+    width: 425px;
+    margin: 15px auto;
+}
+.feedback_home_info_link_btn{
+    /*padding: 0 33% 0 17%;*/
+    /*margin: 0 25% 0 25%;*/
+    width: 425px;
+	height: 50px;
+	background-color: #040546; /* #7cc576 */
+	color: #fff;
+	font-family: sans-serif;
+	text-transform: uppercase;
+    border: 0px;
+    border-radius: 10px;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	/*margin: 10px 10px 25px 25px;*/
+	/*float: right;*/
+	/*margin-right: 1.825em;*/
+}
+.feedback_home_info_link_btn:hover{
+    background: #00a8ff;
+}
+.article_block_user_info_content p{
+    margin-top: 2.5%;
+    padding: 0 2.5%;
+    /*margin: 0 -3%;*/
+    font-weight: bold;
+    font-size: 17px;
+}
+.article_block_user_info_content span{
+    padding: 0 2.5%;
+}
+.feedback_home_info_text{
+    text-align: center;
+    font-size: 17px;
+    padding: 1% 5%;
+}
+.article_block_img_content{
+    max-width: 100%;
+    min-height: 15vh;
+    padding: 0 2%;
+}
+.article_block_img{
+    width: 17%;
+    float: left;
+    margin-top: 1.5%; /* отступ от верхнего блока */
+    margin-bottom: 1.5%; /* отступ от нижнего блока */
+}
+.article_block_content{
+    width: 80%;
+    float: right;
+    padding: 0 2.5%; /* делаем отступ текста от картинки */
+    margin-top: 1.5%; /* отступ от верхнего блока */
+    margin-bottom: 1.5%; /* отступ от нижнего блока */
+}
+.read_feedback{
+    /*width: 300px;*/
+    /*max-width: 500px;*/
+    height: 30px;
+    margin: 10px auto;
+    background-color: #fff; /* background-color: orange; !!!!!!!!!!!!!!!!!!!!! */
+}
+.btn_read_feedback{
+    /*width: 250px;*/
+	height: 5px;
+	background-color: #040546; /* #7cc576 */
+	text-decoration: none;
+	color: #fff;
+	font-family: sans-serif;
+	/*text-transform: uppercase;*/
+    border: 0px;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	/*padding: 0 2.5%; /* делаем отступ от картинки */
+	/*padding: 2.5% 0; /* делаем отступ от картинки */
+	padding: 1.5% 5% 1.5% 5%;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	margin-left:75%;
+	/*margin: 10px 10px 25px 25px;*/
+	/*float: right;*/
+	/*margin-right: 1.825em;*/
+}
+.btn_read_feedback:hover{
+    color: #fff;
+    background: #00a8ff;
+    text-decoration: none;
+}
+/* margin: top-right-bottom-left // top-bottom-right-left */
+/* padding: top-right-bottom-left */
+
+
+
+.feedback_home_info_link{
+    width: 425px;
+    margin: 15px auto;
+}
+.feedback_home_info_link_btn{
+    /*padding: 0 33% 0 17%;*/
+    /*margin: 0 25% 0 25%;*/
+    width: 425px;
+	height: 50px;
+	background-color: #040546; /* #7cc576 */
+	color: #fff;
+	font-family: sans-serif;
+	text-transform: uppercase;
+    border: 0px;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	/*margin: 10px 10px 25px 25px;*/
+	/*float: right;*/
+	/*margin-right: 1.825em;*/
+}
+.feedback_home_info_link_btn:hover{
+    background: #00a8ff;
+}
+
+
+/**********************************************************************************/
+/* -------------- СТРАНИЦА feedback_detail_view -------------- */
+/**********************************************************************************/
+.feedback_detail_view_anchor{
+    padding: 120px 0 0 0;
+    color: #040546;
+}
+
+.feedback_detail_view_block{
+    width: 97%;
+    min-height: 500px;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    /*margin: 0 auto;*/
+    color: #040546;
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    /*background-color: lightyellow;  /* background-color: lightyellow; */
+}
+.feedback_detail_view_user_name{
+    width: 97%; /* 17% */
+    /*height: 200px;*/
+    /*margin-right: 5%;
+    margin-left: 3%;*/
+    /*background-color: orange; /* background-color: orange; */
+    /*box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+}
+.feedback_detail_view_img_content{
+    width: 97%px;
+    height: 450px; /*!!!!!!!!!!!!!!*/
+    /*background-color: yellow;  /* background-color: yellow; */
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+}
+.feedback_detail_view_img{
+    width: 37%;
+    height: 450px; /*!!!!!!!!!!!!!!*/
+    min-height: 300px;
+    padding: 1% 1%;  /* 1.5%(ТОП) 5% 1.5% 5% */
+    float: left;
+    /*background-color: lightgreen;  /* background-color: lightgreen; */
+}
+.feedback_detail_view_image{
+    max-width: 500px;
+    max-height: 450px;
+}
+.feedback_detail_view_content{
+    width: 47%;
+    /*height:450px;*/
+    float: left;
+    padding: 2.5% 1%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    /*background-color: lightblue;  /* background-color: lightblue; */
+}
+.feedback_detail_view_time_create{
+    width:100%;
+    text-align: right;
+    padding: 0.1% 1% 0 0; /* padding: 43% 1% 0 50%; // :28.1% 1% 0 0; */
+    bottom: 0;
+    float: right;
+    /*background-color: green;  /* background-color: green; */
+}
+
+.feedback_cntrl_btns{
+    float: right;
+    width: 100%;  /* 305px */
+    height: 55px;
+    padding-top: 1%;
+    /*background-color: purple;  /* background-color: purple; */
+}
+
+.feedback_cntrl_btns_edit{
+    /*margin-right:-10%;*/
+    width: 50%;
+    float: left;
+    padding-left: 15%;
+    /*background-color: orange;  /* background-color: purple; */
+}
+.feedback_cntrl_btns_del{
+    /*margin-right:-10%;*/
+    width: 50%;
+    float: left;
+    padding-left: 15%;
+    /*background-color: red; /* background-color: purple; */
+}
+
+.btn_edit_feedback{
+    height: 5px;
+	background-color: #040546; /* #7cc576 */
+	text-decoration: none;
+	color: #fff;
+	font-family: sans-serif;
+	text-transform: uppercase;
+    border: 0px;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	/*padding: 0 2.5%; /* делаем отступ от картинки */
+	/*padding: 2.5% 0; /* делаем отступ от картинки */
+	padding: 2.5% 10% 2.5% 10%;
+	margin-left:3%;
+}
+.btn_edit_feedback:hover{
+    color: #fff;
+    background: darkorange;
+    text-decoration: none;
+    font-weight: bold;
+    /*text-transform: uppercase;*/
+}
+/* padding: top-right-bottom-left */
+
+.btn_delete_feedback{
+    height: 5px;
+	background-color: #040546; /* #7cc576 */
+	text-decoration: none;
+	color: #fff;
+	font-family: sans-serif;
+	text-transform: uppercase;
+    border: 0px;
+	transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	/*padding: 0 2.5%; /* делаем отступ от картинки */
+	/*padding: 2.5% 0; /* делаем отступ от картинки */
+	padding: 2.5% 10% 2.5% 10%;
+	margin-left:5%;
+}
+.btn_delete_feedback:hover{
+    color: #fff;
+    background: red;
+    text-decoration: none;
+    font-weight: bold;
+    /*text-transform: uppercase;*/
+}
+
+/* padding: top-right-bottom-left */
+
+
+
+/**********************************************************************************/
+/* -------------- СТРАНИЦА delete_feedback -------------- */
+/**********************************************************************************/
+/* margin: top-right-bottom-left // top-bottom-right-left */
+.delete_feedback_anchor{
+    padding: 120px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 50px;
+    color: #040546;
+}
+
+/* padding: top-right-bottom-left */
+.delete_feedback_block{
+    color: #040546;
+    width: 100%;
+    min-height: 350px;
+    /*background-color: lightyellow;  /* background-color: lightyellow; */
+}
+.feedback_add_by_customer_delete{
+    color: #040546;
+    width:800px;
+    margin-top: 50px;
+    margin-left: 42%;
+    /*position: absolute;*/
+    /*width: 30.5%;
+    margin-left: 35%;
+    margin-right: 34%;*/
+    /*margin:10px auto;*/
+    /*padding: auto 1%;*/
+    /*padding: 5% 5%;*/
+    /*padding: 15% 35%;*/
+    /*background-color: orange;  /* background-color: orange; */
+}
+
+.del_btn{
+    width: 275px;
+	height: 25px;
+	background: #040546;
+	border-radius: 4px;
+	color:#fff;
+	font-size:14px;
+	text-transform:uppercase;
+	border:0px;
+	margin: 0px auto;
+	/*margin-left: 2em;*/
+}
+.del_btn:hover{
+    background: #00a8ff;
+}
+
+/**********************************************************************************/
+/* -------------- СТРАНИЦА feedback_add_by_customer -------------- */
+/**********************************************************************************/
+.feedback_add_by_customer_anchor{
+    padding: 70px 0 0 0;
+    margin-top: -0.325em;
+    text-align: center;
+    margin-top: 25px;
+    color: #040546;
+   /*font-weight:400;*/
+}
+.feedback_add_by_customer_block{
+    /*width: 500px;*/
+    min-height: 550px;
+    margin: 0 auto;
+    padding: 35px auto 35px auto;
+    display: flex;
+    justify-content: center;
+    /*margin-top: 50px;
+    margin-bottom: 200px;*/
+}
+.feedback_add_btn{
+    width: 175px;
+	height: 25px;
+	background: #040546;
+	border-radius: 4px;
+	color:#fff;
+	font-size:14px;
+	text-transform:uppercase;
+	border: 0px;
+	margin: 0 auto;
+}
+.feedback_add_btn:hover{
+    background: #00a8ff;
+}
+.form-feedback-styles{
+    max-width: 480px;
+    max-height: 30px;
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+    padding-left: 2%;
+}
+
+
+
+
+
+/*  list-pages */
+.list-pages {
+	text-align: center;
+	margin: 0 0 20px 0;
+	margin-bottom: -0.001%;
+	padding-bottom: 1.5%;
+}
+.list-pages ul {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+.list-pages ul li {
+	display: inline-block;
+	margin: 0 10px 0 0;
+}
+.list-pages a {
+	color: #000;
+	font-size: 12px;
+	text-decoration: none;
+
+}
+.list-pages .page-num, .page-num-selected {
+	display: inline-block;
+	width: 35px;  /* 60px */
+	height: 35px; /* 44px */
+	padding: 8px 0 0 0;  /* padding: 16px 0 0 0; */
+	border: 1px solid #d0d0d0;
+	border-radius: 15px;  /* 30px */
+}
+.list-pages .page-num:hover {
+	box-shadow: 3px 3px 1px #d0d0d0;
+}
+.list-pages .page-num-selected {
+	border: none;
+	color: #000;
+	font-size: 15px;
+}
+.list-pages .page-num-selected:hover {
+	box-shadow: none;
+}
+
+/************************************************************************************************************/
+/* КАРТОЧКА МОТОЦИКЛА / МАШИНЫ НА ПРОДАЖУ (В НАЛИЧИИ) */
+/************************************************************************************************************/
+/* padding: top-right-bottom-left */
+.backgroundclass{
+    width: 80%;
+    min-height: 1005px;
+    margin: 0 auto;
+    border: 1px solid grey;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    margin-bottom: 0px;
+    /*width: 100%;
+    height: 100%;*/
+    /*background-color: lightblue;  /* background-color: red; */
+}
+.main_block_card{
+    width: 80%;
+    min-height: 1000px;
+    margin: 0 auto;
+    /*white-space: normal;
+    background-repeat: no-repeat;
+    overflow: hidden;*/
+    margin-bottom: 2%;
+    color: #040546;
+    /*background-color: red;  /* background-color: red; */
+}
+.item_img_block_main{
+    max-width: 70%;
+    /*max-height: 900px;*/
+    float: left;
+    /*background-color: blue;  /* background-color: red; */
+}
+/* padding: top-right-bottom-left */
+.item_img_block{
+    padding: 3% 0 0 0;
+    /*width: 100%;
+    /*max-width: 70%; /*810px*/
+    min-height: 380px;
+    max-height: 600px;
+    /*float: left;*/
+    /*background-color: lightgreen;  /* background-color: lightgreen; */
+}
+
+.fotorama{
+    margin-left: 10%;
+    margin-right: 30%;
+    max-width: 1000px;
+    max-height: 600px;
+    /*border: 10px solid black;*/
+}
+.item_params_block{
+    /*width: 2000px;*/
+    width: 30%; /* 400px*/
+    min-height: 380px;
+    float: left;
+    /*display: block;*/
+    /*overflow: hidden;*/
+    /*background-color: lightblue;  /* background-color: lightblue; */
+}
+/* margin: top-right-bottom-left */
+/* padding: top-right-bottom-left */
+.item_params_block_details{
+    margin: 3.5% 2.5% 2.5% 4.5%; /* margin: 1.5% 2.5% 2.5% 4.5%; */
+    padding: 2.5% 0 2.5% 10%;
+    width: 90%; /* 400px*/
+    height: 20%;
+    /*background-color: yellow;  /* background-color: yellow; */
+}
+.item_params_block_details_line{
+    margin: 0 0 10px 0;
+    width: 50%;
+}
+
+.item_line{
+    /*margin-top: 800px;
+    width: 70%;
+    margin: 0 auto;*/
+    width: 70%;
+    height: 2px;
+    margin: 15px auto;
+    border: 0;
+    background: linear-gradient(to right, rgba(0,0,35,0)0%, rgba(0,0,35,0.7)50%, rgba(0,0,35,0)100%)
+}
+.item_description_block{
+    width: 70%;
+    margin: 0 auto;
+    min-height: 350px;
+    /*margin: 1.5% 2.5% 1.5% 4.5%;*/
+    padding: 1% 3.5% 1% 9.7%;
+    float: left;
+    /*border-top: 1px solid grey;*/
+    /*background-color: orange;  /* background-color: orange; */
+}
+/*.item_params_block_prices{
+    width: 90%;
+    height: 15%;
+    margin-top: -2.5%;
+    margin-left: 2.5%;
+    margin-right: 4.5%;
+    padding: 0 0 5.5% 15%;
+    background-color: orange;  /* background-color: orange; */
+/*}*/
+/*.item_params_block_location{
+    width: 90%;
+    height: 15%;
+    margin: 1.5% 2.5% 1.5% 4.5%;
+    padding: 5.5% 0 7.5% 15%;
+    font-size: 18px;
+    float: left;
+    background-color: orange;  /* background-color: orange; */
+/*}*/
+.item_params_block_prices{
+    width: 30%; /* 400px*/
+    height: 20%;
+    /*margin: 1.5% 2.5% 1.5% 4.5%;*/
+    padding: 1% 0 2.5% 3.5%;
+    float: left;
+    font-weight: 450;
+    /*border-top: 1px solid grey;*/
+    /*background-color: lightpink;  /* background-color: red; */
+}
+.item_params_block_location{
+    width: 30%; /* 400px*/
+    height: 20%;
+    /*margin: 1.5% 2.5% 1.5% 4.5%;*/
+    padding: 1% 0 2.5% 3.5%;
+    float: left;
+    font-weight: 450;
+    /*border-top: 1px solid grey;*/
+    /*background-color: lightpink;  /* background-color: red; */
+}
+.item_params_block_contacts{
+    width: 30%; /* 400px*/
+    height: 20%;
+    /*margin: 1.5% 2.5% 1.5% 4.5%;*/
+    padding: 1% 0 2.5% 3.5%;
+    float: left;
+    font-weight: 450;
+    /*border-top: 1px solid grey;*/
+    /*background-color: lightpink;  /* background-color: red; */
+}
+.item_params_block_contacts p a{
+    color: #040546; /* фон пунктов при наведении */
+    text-decoration: none;
+}
+.item_params_block_contacts p a:hover{
+    color: #00a8ff; /* фон пунктов при наведении */
+    text-decoration: none;
+}
+
+.sel_opacity:hover{
+    opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+
+
+/* margin: top-right-bottom-left */
+/* padding: top-right-bottom-left */
+
+/***************************************/
+/* МЕДИА ЗАПРОСЫ */
+/* ТЕЛЕФОНЫ В ХЕДЕРЕ САЙТА (НАЧАЛО) */
+@media screen and (max-width: 1015px){
+    .phones{
+        text-align: center; /* пункты и текст горизонтально по центру */
+        margin-top: 8px;
+    }
+}
+@media screen and (max-width: 577px){
+    .position-registration p{
+        font-size: 13px;
+    }
+}
+
+@media screen and (min-width: 515.1px){
+    .phones-hidden{
+        display: none;
+    }
+}
+@media screen and (max-width: 515px){
+    .position-registration{
+        display: none;
+    }
+    .phones li a{
+        display: none;
+    }
+    .main-phones{
+        display: initial;
+        font-size: 10px;
+        padding-left: 0px;
+        padding-right: 0px;
+        /*background-color: red;*/
+    }
+    .phones-hidden li a img{
+        width: 10px;
+        height: 10px;
+        margin-left: -30px;
+    }
+    .phones-hidden li a small{
+        margin-left: -20px;
+    }
+}
+@media screen and (max-width: 325px){
+    .position-registration{
+        display: none;
+    }
+    .phones li a{
+        display: none;
+    }
+    .main-phones{
+        display: initial;
+        font-size: 9px;
+        padding-left: 0px;
+        padding-right: 0px;
+        /*background-color: red;*/
+    }
+    .phones-hidden li a img{
+        width: 8px;
+        height: 8px;
+        margin-left: -30px;
+    }
+    .phones-hidden li a small{
+        margin-left: -20px;
+    }
+}
+
+/* ТЕЛЕФОНЫ В ХЕДЕРЕ САЙТА (КОНЕЦ) */
+/* КАЛЬКУЛЯТОР (НАЧАЛО) */
+@media (max-width: 1200px){
+    .customs_calculator_block{
+        max-width: 943px;
+    }
+}
+@media screen and (max-width: 950px){ /* 768 */
+    .customs_calculator_block{
+        max-width: 768px;
+        font-size: 13.5px;
+    }
+    .customs_calculator_block_1_inputs{
+         padding: 0 3px;
+    }
+    .form-control {
+        max-width: 150px;
+        max-height: 30px;
+    }
+    .input-btn{
+        max-width: 140px;
+        max-height: 40px;
+        font-size: 12px;
+    }
+    .customs_calculator_block_2_inner {
+        font-size: 17px;
+        padding: 55% 10% 0% 10%;
+    }
+}
+@media screen and (max-width: 640px){  /* 425 */
+    .customs_calculator_block{
+        max-width: 425px;
+        font-size: 10px;
+    }
+    .customs_calculator_block_1{
+        width: 100%;
+        height: 250px;
+        font-weight: normal;
+        margin-right: 0;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+    .customs_calculator_block_2{
+        width: 100%;
+        height: 100px;
+        margin-right: 0;
+        margin-left: 0;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+    .customs_calculator_block_1_inputs{
+         padding: 0 3px;
+    }
+    .form-control {
+        max-width: 120px;
+        max-height: 20px;
+    }
+    .input-btn{
+        max-width: 320px;
+        max-height: 25px;
+        font-size: 10px;
+        margin: 1% 0 0 29%;
+        float: none;
+    }
+    .customs_calculator_block_2_inner {
+        font-size: 15px;
+        padding: 12% 15% 0% 20%;
+    }
+}/*
+@media screen and (max-width: 375px){
+    .customs_calculator_block{
+        max-width: 375px;
+        font-size: 9.5px;
+    }
+    .customs_calculator_block_1{
+        width: 100%;
+        height: 250px;
+        font-weight: normal;
+        margin-right: 0;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+    .customs_calculator_block_2{
+        width: 100%;
+        height: 100px;
+        margin-right: 0;
+        margin-left: 0;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+    .customs_calculator_block_1_inputs{
+         padding: 0 3px;
+    }
+    .form-control {
+        max-width: 120px;
+        max-height: 20px;
+    }
+    .input-btn{
+        max-width: 320px;
+        max-height: 25px;
+        font-size: 10px;
+        margin: 1% 0 0 25%;
+        float: none;
+    }
+    .customs_calculator_block_2_inner {
+        font-size: 15px;
+        padding: 12% 15% 0% 15%;
+    }
+}*/
+
+@media screen and (max-width: 375px){ /* 320 */
+    .customs_calculator_block{
+        max-width: 320px;
+        font-size: 9px;
+    }
+    .customs_calculator_block_1{
+        width: 100%;
+        height: 250px;
+        font-weight: normal;
+        margin-right: 0;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+    .customs_calculator_block_2{
+        width: 100%;
+        height: 100px;
+        margin-right: 0;
+        margin-left: 0;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+    .customs_calculator_block_1_inputs{
+         padding: 0 3px;
+    }
+    .form-control {
+        max-width: 120px;
+        max-height: 20px;
+    }
+    .input-btn{
+        max-width: 320px;
+        max-height: 25px;
+        font-size: 10px;
+        margin: 1.5% 0 0 20%;
+        float: none;
+    }
+    .customs_calculator_block_2_inner {
+        font-size: 15px;
+        padding: 12% 15% 0% 15%;
+    }
+}
+@media screen and (max-width: 325px){ /* 320 */
+    .customs_calculator_block{
+        max-width: 310px;
+        font-size: 8.5px;
+    }
+    .customs_calculator_block_1{
+        width: 100%;
+        height: 250px;
+        font-weight: normal;
+        margin-right: 0;
+        margin-left: 0;
+        margin: 0 auto;
+    }
+    .customs_calculator_block_2{
+        width: 100%;
+        height: 100px;
+        margin-right: 0;
+        margin-left: 0;
+        margin: 0 auto;
+        margin-top: 5px;
+    }
+    .customs_calculator_block_1_inputs{
+         padding: 0 3px;
+    }
+    .form-control {
+        max-width: 120px;
+        max-height: 20px;
+    }
+    .input-btn{
+        max-width: 310px;
+        max-height: 25px;
+        font-size: 10px;
+        margin: 1.5% 0 0 20%;
+        float: none;
+    }
+    .customs_calculator_block_2_inner {
+        font-size: 15px;
+        padding: 12% 15% 0% 15%;
+    }
+}
+/* КАЛЬКУЛЯТОР (КОНЕЦ) */
+/* ОСНОВНЫЕ КНОПКИ НА ГЛАВНОЙ СТРАНИЦЕ (НАЧАЛО) */
+@media screen and (max-width: 1024px){ /* 768 */
+    .container1{
+        max-width: 1024px;
+    }
+    .container2{
+        max-width: 1024px;
+    }
+}
+@media screen and (max-width: 950px){
+    .container1{
+        max-width: 1024px;
+    }
+    .container2{
+        max-width: 1024px;
+    }
+    .text_in_block{
+        text-align: center;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 768px){ /* 768 */
+    .container1{
+        max-width: 768px;
+    }
+
+    .container2{
+        max-width: 768px;
+    }
+    .text_in_block{
+        text-align: center;
+        font-size: 12px;
+    }
+}
+@media screen and (max-width: 640px){ /* 768 */
+    .container1{
+        max-width: 425px;
+        display: block;
+    }
+    .container1_1{
+        display: block;
+        max-width: 100%;
+        margin-bottom: 5%;
+    }
+    .container1_2{
+        display: block;
+        max-width: 100%;
+    }
+    .container2{
+        max-width: 425px;
+        display: block;
+    }
+    .container2_1{
+        max-width: 100%;
+        margin-bottom: 5%;
+    }
+    .container2_2{
+        max-width: 100%;
+        margin-bottom: 5%;
+    }
+    .text_in_block{
+        text-align: center;
+        font-size: 10px;
+    }
+}
+/* ОСНОВНЫЕ КНОПКИ НА ГЛАВНОЙ СТРАНИЦЕ (КОНЕЦ) */
+/* БЛОК "ПРЕИМУЩЕСТВА РАБОТЫ С НАМИ" (НАЧАЛО) */
+@media screen and (max-width: 910px) {
+    .main-middle3-part article{
+        width: 45%;
+        margin-top: 35px;
+    }
+    .main-middle3-part article:last-child{  /* убираем пробел справа */
+        margin-right: 0;  /* отступ от блока справа */
+        margin-left: 25%;
+    }
+}
+@media screen and (max-width: 375px) {
+    .main-middle3-part article{
+        width: 100%;
+        margin-top: 35px;
+    }
+    .main-middle3-part article:last-child{  /* убираем пробел справа */
+        margin-right: 0;  /* отступ от блока справа */
+        margin-left: 0;
+    }
+}
+/* БЛОК "ПРЕИМУЩЕСТВА РАБОТЫ С НАМИ" (КОНЕЦ) */
+/* ФУТЕР (НАЧАЛО) */
+@media screen and (max-width: 910px) {
+    .middle4-article article{
+        border: none;
+        width: 42%;
+        min-height: 220px;
+        margin: 0 auto;
+        float: left;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .middle4-article article{
+        border: none;
+        width: 92%;
+        min-height: 170px;
+        margin: 0 auto;
+        float: left;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+}
+/* ФУТЕР (КОНЕЦ) */
+/* ********************************************************************************************* */
+/* ******************************* СТРАНИЦА moto_import (начало) ******************************* */
+/* ********************************************************************************************* */
+/* -------------------------------------------------------------------------- */
+@media screen and (min-width: 2000px) {
+    .moto_import_block_available_moto{
+        max-width: 100%; /* ширина рабочего блока - 1200px */
+        height: 50vh;
+        background-color: #f2f2f2;*/
+        /*background-color: yellow;  /* yellow; */
+    }
+    .available_moto_list article{
+        width: 20%;
+        height: 415px;
+        float: left;
+        margin: 1% 2.5% 1.5% 2.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+}
+@media screen and (max-width: 1260px) {
+    .available_moto_list article{
+        width: 27%;
+        height: 370px;
+        float: left;
+        margin: 1% 1.5% 1.5% 4.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 230px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 12px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .more_inf_btn_item_more{
+        width: 90px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 2px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .available_moto_list article{
+        width: 27%;
+        height: 330px;
+        float: left;
+        margin: 1% 2.5% 1.5% 2.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 200px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 11px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .more_inf_btn_item_more{
+        width: 90px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 2px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 920px) {
+    .available_moto_list article{
+        width: 27%;
+        height: 330px;
+        float: left;
+        margin: 1% 2.5% 1.5% 2.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 200px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 90px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 2px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 861px) {
+    .available_moto_list article{
+        width: 27%;
+        height: 300px;
+        float: left;
+        margin: 1% 2.5% 1.5% 2.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 180px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 70px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 2px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .available_moto_list article{
+        width: 29%;
+        height: 290px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 150px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 65px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 3px;
+        padding-right: 7px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .available_moto_list article{
+        width: 47%;
+        height: 290px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 170px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 11px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 65px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 3px;
+        padding-right: 7px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .available_moto_list article{
+        width: 47%;
+        height: 290px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 170px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 65px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 3px;
+        padding-right: 10px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .moto_import_block_text{
+        font-size: 12.5px;
+    }
+    .available_moto_list article{
+        width: 97%;
+        height: 310px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 210px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 120px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 3px;
+        text-align: center;
+        padding-right: 7%;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .moto_import_block_text{
+        font-size: 11px;
+    }
+    .available_moto_list article{
+        width: 97%;
+        height: 310px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_moto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 210px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 100px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 2%;
+        padding-top: 3px;
+        text-align: center;
+        padding-right: 7%;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+/* ********************************************************************************************* */
+/* ******************************* СТРАНИЦА moto_import (конец) ******************************** */
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/* ******************************* СТРАНИЦА auto_import (начало) ******************************* */
+/* ********************************************************************************************* */
+@media screen and (min-width: 2000px) {
+    .auto_import_block_available_auto{
+        max-width: 100%; /* ширина рабочего блока - 1200px */
+        height: 50vh;
+        background-color: #f2f2f2;*/
+        /*background-color: yellow;  /* yellow; */
+    }
+    .available_auto_list article{
+        width: 20%;
+        height: 415px;
+        float: left;
+        margin: 1% 2.5% 1.5% 2.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+}
+@media screen and (max-width: 1260px) {
+    .available_auto_list article{
+        width: 27%;
+        height: 370px;
+        float: left;
+        margin: 1% 1.5% 1.5% 4.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 230px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 12px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .more_inf_btn_item_more{
+        width: 90px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 2px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .available_auto_list article{
+        width: 27%;
+        height: 330px;
+        float: left;
+        margin: 1% 2.5% 1.5% 2.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 200px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 11px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .more_inf_btn_item_more{
+        width: 90px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 2px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 920px) {
+    .available_auto_list article{
+        width: 27%;
+        height: 330px;
+        float: left;
+        margin: 1% 2.5% 1.5% 2.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 200px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 90px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 2px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 861px) {
+    .available_auto_list article{
+        width: 27%;
+        height: 300px;
+        float: left;
+        margin: 1% 2.5% 1.5% 2.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 160px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 70px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 2px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .available_auto_list article{
+        width: 29%;
+        height: 290px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 150px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 65px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 3px;
+        padding-right: 7px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .available_auto_list article{
+        width: 47%;
+        height: 290px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 170px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 11px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 3px 3px 3px 3px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 65px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 3px;
+        padding-right: 7px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 520px) {
+    .available_auto_list article{
+        width: 47%;
+        height: 290px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 170px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 65px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 3px;
+        padding-right: 10px;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 450px) {
+    .auto_import_block_text{
+        font-size: 12.5px;
+    }
+    .available_auto_list article{
+        width: 97%;
+        height: 310px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 220px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 120px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 4%;
+        padding-top: 3px;
+        text-align: center;
+        padding-right: 7%;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+@media screen and (max-width: 331px) {
+    .auto_import_block_text{
+        font-size: 11px;
+    }
+    .available_auto_list article{
+        width: 97%;
+        height: 310px;
+        float: left;
+        margin: 1% 1.5% 1.5% 1.5%;
+        border: 1px solid black;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+    }
+    .available_auto_list article:last-child{  /* убираем пробел справа */
+        margin-right: 0;
+    }
+    .item_card_photo img{
+        width: 100%;
+        height: 210px
+    }
+    .item_card_info{
+        width: 94.0%;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 2%;
+        font-size: 10px;
+        /*float: left;*/
+        /*background-color: lightblue; /*  lightgreen;  */
+    }
+    .item_card_about{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: red;*/
+    }
+
+    .item_card_info__price{
+        width: 48.0%;
+        padding: 2px 2px 2px 2px;
+        float: left;
+        /*background-color: yellow;*/
+    }
+    .more_inf_btn_item_more{
+        width: 100px; /* 115 */
+        height: 20px;
+        float: left;
+        margin-top: 2%;
+        padding-top: 3px;
+        text-align: center;
+        padding-right: 7%;
+        background-color: #040546;
+        border-radius: 4px;
+    }
+}
+/* ********************************************************************************************* */
+/* ******************************* СТРАНИЦА auto_import (конец) ******************************** */
+/* ********************************************************************************************* */
+
+/* ********************************************************************************************* */
+/* *********************************** СТРАНИЦА login (начало) ********************************* */
+/* ********************************************************************************************* */
+/*@media screen and (max-width: 2560px){
+    .login_block{
+        margin-top: 15%;
+    }
+}
+@media screen and (max-width: 1440px){
+    .login_block{
+        margin-top: 10%;
+    }
+}
+@media screen and (max-width: 1024px){
+    .login_block{
+        margin-top: 10%;
+        margin-left: 3%;
+    }
+}*/
+@media screen and (max-width: 768px){
+    .login_block{
+        margin-top: 10%;
+        margin-left: 3%;
+    }
+}
+@media screen and (max-width: 320px){
+    .login_block{
+        margin-top: 20%;
+        margin-left: 5%;
+    }
+}
+/* ********************************************************************************************* */
+/* *********************************** СТРАНИЦА login (конец) ********************************** */
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/* ********************************* СТРАНИЦА register (начало) ******************************** */
+/* ********************************************************************************************* */
+@media screen and (max-width: 2560px){
+    .register_block{
+        margin-top: 15%;
+    }
+}
+@media screen and (max-width: 1440px){
+    .register_block{
+        margin-top: 10%;
+    }
+}
+@media screen and (max-width: 1024px){
+    .register_block{
+        margin-top: 10%;
+    }
+}
+@media screen and (max-width: 768px){
+    .register_block{
+        margin-top: 5%;
+    }
+}
+@media screen and (max-width: 425px){
+    .register_block{
+        margin-top: 10%;
+    }
+}
+/* ********************************************************************************************* */
+/* ********************************** СТРАНИЦА register (конец) ******************************** */
+/* ********************************************************************************************* */
+/* ********************************************************************************************* */
+/* ***************** КАРТОЧКА МОТОЦИКЛА / МАШИНЫ НА ПРОДАЖУ (В НАЛИЧИИ) (начало) *************** */
+/* ********************************************************************************************* */
+@media screen and (max-width: 2560px){
+    .item_img_block{
+        padding-top: 3%;
+        min-height: 380px;
+        max-height: 600px;
+        /*background-color: lightgreen;  /* background-color: lightgreen; */
+    }
+    .fotorama{
+        max-width: 1700px;
+        max-height: 900px;
+        /*border: 10px solid black;*/
+    }
+}
+@media screen and (max-width: 1750px){
+    .item_img_block{
+        padding-top: 3%;
+        min-height: 380px;
+        max-height: 600px;
+        /*background-color: lightgreen;  /* background-color: lightgreen; */
+    }
+    .fotorama{
+        max-width: 1000px;
+        max-height: 600px;
+        /*border: 10px solid black;*/
+    }
+}
+@media screen and (max-width: 1024px){
+    .item_img_block{
+        padding-top: 3%;
+        min-height: 380px;
+        max-height: 600px;
+        /*background-color: lightgreen;  /* background-color: lightgreen; */
+    }
+    .fotorama{
+        max-width: 900px;
+        max-height: 500px;
+        /*border: 10px solid black;*/
+    }
+}
+@media screen and (max-width: 925px){
+    .item_img_block_main{
+        max-width: 65%;
+        float: left;
+        /*background-color: blue;  /* background-color: red; */
+    }
+    .item_description_block{
+        width: 70%;
+        margin: 0 auto;
+        margin-left: -7%;
+        min-height: 350px;
+        padding: 1% 3.5% 1% 9.7%;
+        float: left;
+        /*background-color: orange;  /* background-color: orange; */
+    }
+    .item_img_block{
+        padding-top: 7%;
+        max-width: 700px;
+        margin-left: -10%;
+        min-height: 380px;
+        max-height: 600px;
+        /*background-color: lightgreen;  /* background-color: lightgreen; */
+    }
+    .fotorama{
+        max-width: 700px;
+        max-height: 400px;
+        /*border: 10px solid black;*/
+    }
+}
+@media screen and (max-width: 710px){
+    .item_img_block_main{
+        max-width: 100%;
+        float: left;
+        /*background-color: blue;  /* background-color: red; */
+    }
+    .item_img_block{
+        padding-top: 3%;
+        padding-left: 0%;
+        max-width: 100%;
+        margin-left: 0%;
+        min-height: 380px;
+        max-height: 600px;
+        /*background-color: lightgreen;  /* background-color: lightgreen; */
+    }
+    .fotorama{
+        margin-left: 0px;
+        width: 100%; /* 710px */
+        display: flex;
+        justify-content: center;
+        max-height: 600px;
+        /*border: 10px solid black;*/
+    }
+    .item_params_block{
+        width: 30%; /* 400px*/
+        min-height: 380px;
+        float: left;
+        margin-left: -2.5%;
+        /*background-color: lightblue;  /* background-color: lightblue; */
+    }
+    .item_description_block{
+        width: 70%;
+        margin: 0 auto;
+        margin-left: -0%;
+        min-height: 350px;
+        padding: 1% 3.5% 1% 9.7%;
+        float: left;
+        /*background-color: orange;  /* background-color: orange; */
+    }
+    .item_params_block_location{
+        width: 30%; /* 400px*/
+        height: 20%;
+        padding: 1% 0 2.5% 3.5%;
+        margin-left: 4%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+}
+@media screen and (max-width: 700px){
+    .item_img_block_main{
+        max-width: 100%;
+        float: left;
+        /*background-color: blue;  /* background-color: red; */
+    }
+    .item_img_block{
+        padding-top: 3%;
+        padding-left: 0%;
+        max-width: 100%;
+        margin-left: 0%;
+        min-height: 380px;
+        max-height: 600px;
+        /*background-color: lightgreen;  /* background-color: lightgreen; */
+    }
+    .fotorama{
+        margin-left: 0px;
+        width: 425px; /* 710px */
+        display: flex;
+        justify-content: center;
+        max-height: 600px;
+        /*border: 10px solid black;*/
+    }
+    .item_params_block{
+        /*width: 2000px;*/
+        width: 100%; /* 400px*/
+        min-height: 380px;
+        float: left;
+        /*background-color: lightblue;  /* background-color: lightblue; */
+    }
+    .item_params_block_details{
+        margin: 2.5% 0.5% 2.5% 0.5%; /* margin: 1.5% 2.5% 2.5% 4.5%; */
+        padding: 2.5% 0 2.5% 10%;
+        width: 100%; /* 400px*/
+        height: 20%;
+        /*background-color: yellow;  /* background-color: yellow; */
+    }
+    .item_params_block_details_line{
+        width: 50%;
+    }
+    .item_description_block{
+        width: 100%;
+        margin: 0 auto;
+        min-height: 350px;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 3.5% 1% 6.5%;
+        float: left;
+        /*background-color: orange;  /* background-color: orange; */
+    }
+    .item_params_block_prices{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+    .item_params_block_location{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+    .item_params_block_contacts{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+}
+@media screen and (max-width: 425px){
+    .item_img_block_main{
+        max-width: 100%;
+        float: left;
+        /*background-color: blue;  /* background-color: red; */
+    }
+    .item_img_block{
+        padding-top: 3%;
+        padding-left: 0%;
+        max-width: 100%;
+        margin-left: 0%;
+        min-height: 380px;
+        max-height: 600px;
+        /*background-color: lightgreen;  /* background-color: lightgreen; */
+    }
+    .fotorama{
+        margin-left: 0px;
+        width: 400px; /* 710px */
+        display: flex;
+        justify-content: center;
+        max-height: 600px;
+        /*border: 10px solid black;*/
+    }
+    .item_params_block{
+        /*width: 2000px;*/
+        width: 100%; /* 400px*/
+        min-height: 380px;
+        float: left;
+        /*background-color: lightblue;  /* background-color: lightblue; */
+    }
+    .item_params_block_details{
+        margin: 2.5% 0.5% 2.5% 0.5%; /* margin: 1.5% 2.5% 2.5% 4.5%; */
+        padding: 2.5% 0 2.5% 10%;
+        width: 100%; /* 400px*/
+        height: 20%;
+        /*background-color: yellow;  /* background-color: yellow; */
+    }
+    .item_params_block_details_line{
+        width: 50%;
+    }
+    .item_description_block{
+        width: 100%;
+        margin: 0 auto;
+        min-height: 350px;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 3.5% 1% 6.5%;
+        float: left;
+        /*background-color: orange;  /* background-color: orange; */
+    }
+    .item_params_block_prices{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+    .item_params_block_location{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+    .item_params_block_contacts{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+    .feedback_home_info_link{
+        width: 400px;
+    }
+    .feedback_home_info_link_btn{
+        width: 400px;
+    }
+    .feedback_home_info_link_btn:hover{
+        background: #00a8ff;
+    }
+}
+@media screen and (max-width: 375px){
+    .item_img_block_main{
+        max-width: 100%;
+        float: left;
+        /*background-color: blue;  /* background-color: red; */
+    }
+    .item_img_block{
+        padding-top: 3%;
+        padding-left: 0%;
+        max-width: 100%;
+        margin-left: 0%;
+        min-height: 380px;
+        max-height: 600px;
+        /*background-color: lightgreen;  /* background-color: lightgreen; */
+    }
+    .fotorama{
+        margin-left: 0px;
+        width: 355px; /* 710px */
+        display: flex;
+        justify-content: center;
+        max-height: 600px;
+        /*border: 10px solid black;*/
+    }
+    .item_params_block{
+        /*width: 2000px;*/
+        width: 100%; /* 400px*/
+        min-height: 380px;
+        float: left;
+        /*background-color: lightblue;  /* background-color: lightblue; */
+    }
+    .item_params_block_details{
+        margin: 2.5% 0.5% 2.5% 0.5%; /* margin: 1.5% 2.5% 2.5% 4.5%; */
+        padding: 2.5% 0 2.5% 10%;
+        width: 100%; /* 400px*/
+        height: 20%;
+        /*background-color: yellow;  /* background-color: yellow; */
+    }
+    .item_params_block_details_line{
+        width: 50%;
+    }
+    .item_description_block{
+        width: 100%;
+        margin: 0 auto;
+        min-height: 350px;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 3.5% 1% 6.5%;
+        float: left;
+        /*background-color: orange;  /* background-color: orange; */
+    }
+    .item_params_block_prices{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+    .item_params_block_location{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+    .item_params_block_contacts{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+
+    .feedback_home_info_link{
+        width: 355px;
+    }
+    .feedback_home_info_link_btn{
+        width: 355px;
+    }
+    .feedback_home_info_link_btn:hover{
+        background: #00a8ff;
+    }
+
+}
+@media screen and (max-width: 325px){
+    .item_img_block_main{
+        max-width: 100%;
+        float: left;
+        /*background-color: blue;  /* background-color: red; */
+    }
+    .item_img_block{
+        padding-top: 3%;
+        padding-left: 0%;
+        max-width: 100%;
+        margin-left: 0%;
+        min-height: 380px;
+        max-height: 600px;
+        /*background-color: lightgreen;  /* background-color: lightgreen; */
+    }
+    .fotorama{
+        margin-left: 0px;
+        width: 315px; /* 710px */
+        display: flex;
+        justify-content: center;
+        max-height: 600px;
+        /*border: 10px solid black;*/
+    }
+    .item_params_block{
+        /*width: 2000px;*/
+        width: 100%; /* 400px*/
+        min-height: 380px;
+        float: left;
+        /*background-color: lightblue;  /* background-color: lightblue; */
+    }
+    .item_params_block_details{
+        margin: 2.5% 0.5% 2.5% 0.5%; /* margin: 1.5% 2.5% 2.5% 4.5%; */
+        padding: 2.5% 0 2.5% 10%;
+        width: 100%; /* 400px*/
+        height: 20%;
+        /*background-color: yellow;  /* background-color: yellow; */
+    }
+    .item_params_block_details_line{
+        width: 50%;
+    }
+    .item_description_block{
+        width: 100%;
+        margin: 0 auto;
+        min-height: 350px;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 3.5% 1% 6.5%;
+        float: left;
+        /*background-color: orange;  /* background-color: orange; */
+    }
+    .item_params_block_prices{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+    .item_params_block_location{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+    .item_params_block_contacts{
+        width: 100%; /* 400px*/
+        height: 20%;
+        margin: 0.5% 0.5% 0.5% 0.5%;
+        padding: 1% 0 2.5% 6.5%;
+        float: left;
+        font-weight: 450;
+        /*background-color: lightpink;  /* background-color: red; */
+    }
+
+    .feedback_home_info_link{
+        width: 310px;
+    }
+    .feedback_home_info_link_btn{
+        width: 310px;
+    }
+    .feedback_home_info_link_btn:hover{
+        background: #00a8ff;
+    }
+}
+/* ********************************************************************************************* */
+/* ***************** КАРТОЧКА МОТОЦИКЛА / МАШИНЫ НА ПРОДАЖУ (В НАЛИЧИИ) (конец) **************** */
+/* ********************************************************************************************* */
+
+/* ********************************************************************************************* */
+/* *********************************** feedback_home (начало) *********************************** */
+/* ********************************************************************************************* */
+@media screen and (max-width: 2560px){
+    .feedback_block{
+        width: 100%;
+        min-height: 700px;
+        margin-bottom: -0.5%;
+        /*background-color: lightyellow; /* background-color: lightyellow; */
+    }
+    .feedback_block_1 {
+        width: 20%;
+        /*background-color: lightblue;*/
+    }
+    .feedback_block_2 {
+        width: 78%;
+        float: right;
+        /*background-color: red;*/
+    }
+}
+
+@media screen and (max-width: 1440px){
+    .feedback_block_1 {
+        width: 27%;
+        height: auto;
+        float: left;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        margin-left: 1.5%;
+        margin-top: 1.5%;
+        /*background-color: blue;*/
+    }
+    .feedback_block_2 {
+        width: 70%;
+        float: right;
+        background-color: #f2f2f2;
+        height: auto;
+        /*background-color: red;*/
+    }
+    .article_block{
+        min-width: 300px;
+        max-width: 700px;
+        margin: 15px auto;
+        border: 1px solid grey;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        background-color: #fff;
+    }
+    .article_block_content{
+        width: 70%;
+        float: right;
+        padding: 0 2.5%; /* делаем отступ текста от картинки */
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+    }
+}
+@media screen and (max-width: 1024px){
+    .feedback_block_1 {
+        width: 27%;
+        height: auto;
+        float: left;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        margin-left: 1.5%;
+    }
+    .feedback_block_2 {
+        width: 70%;
+        float: right;
+        background-color: #f2f2f2;
+        height: auto;
+    }
+    .article_block{
+        min-width: 300px;
+        max-width: 600px;
+        margin: 15px auto;
+        border: 1px solid grey;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        background-color: #fff;
+    }
+    .article_block_content{
+        width: 70%;
+        float: right;
+        padding: 0 2.5%; /* делаем отступ текста от картинки */
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+    }
+}
+@media screen and (max-width: 855px){
+    .feedback_block_1 {
+        width: 27%;
+        height: auto;
+        float: left;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        margin-left: 1.5%;
+        margin-right: 1.5%;
+    }
+    .feedback_block_2 {
+        width: 60%;
+        float: left;
+        background-color: #f2f2f2;
+        height: auto;
+    }
+    .article_block{
+        min-width: 300px;
+        max-width: 600px;
+        margin: 15px auto;
+        font-size: 12px;
+        border: 1px solid grey;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        background-color: #fff;
+    }
+    .article_block_content{
+        width: 70%;
+        float: right;
+        padding: 0 2.5%; /* делаем отступ текста от картинки */
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+    }
+    .article_block_img_content{
+        max-width: 100%;
+        min-height: 10vh;
+        padding: 0 2%;
+    }
+}
+@media screen and (max-width: 615px){ /* 608 */
+    .feedback_block_1 {
+        width: 97%;
+        height: auto;
+        float: left;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        margin-top: 1.5%;
+        margin-left: 1.5%;
+        margin-right: 1.5%;
+    }
+    .feedback_block_2 {
+        width: 100%;
+        float: left;
+        background-color: #f2f2f2;
+        height: auto;
+    }
+    .article_block{
+        min-width: 300px;
+        max-width: 600px;
+        margin: 15px auto;
+        font-size: 12px;
+        border: 1px solid grey;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        background-color: #fff;
+    }
+    .article_block_content{
+        width: 70%;
+        float: right;
+        padding: 0 2.5%; /* делаем отступ текста от картинки */
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+    }
+    .article_block_img_content{
+        max-width: 100%;
+        min-height: 10vh;
+        padding: 0 2%;
+    }
+    .btn_read_feedback{
+        /*width: 250px;*/
+        height: 5px;
+        background-color: #040546; /* #7cc576 */
+        text-decoration: none;
+        color: #fff;
+        font-family: sans-serif;
+        border: 0px;
+        transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        padding: 1.5% 5% 1.5% 5%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 70%;
+    }
+}
+@media screen and (max-width: 425px){ /* 608 */
+    .feedback_block_1 {
+        width: 97%;
+        height: auto;
+        float: left;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        margin-top: 1.5%;
+        margin-left: 1.5%;
+        margin-right: 1.5%;
+    }
+    .feedback_block_2 {
+        width: 100%;
+        float: left;
+        background-color: #f2f2f2;
+        height: auto;
+    }
+    .article_block{
+        min-width: 300px;
+        max-width: 600px;
+        margin: 15px auto;
+        font-size: 12px;
+        border: 1px solid grey;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        background-color: #fff;
+    }
+    .article_block_content{
+        width: 60%;
+        float: right;
+        padding: 0 2.5%; /* делаем отступ текста от картинки */
+        margin-top: 1.5%;
+        margin-bottom: 1.5%;
+    }
+    .article_block_img_content{
+        max-width: 100%;
+        min-height: 10vh;
+        padding: 0 2%;
+    }
+    .btn_read_feedback{
+        /*width: 250px;*/
+        height: 5px;
+        background-color: #040546; /* #7cc576 */
+        text-decoration: none;
+        color: #fff;
+        font-family: sans-serif;
+        border: 0px;
+        transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        padding: 1.5% 5% 1.5% 5%;
+        margin-top: 2px;
+        margin-bottom: 2px;
+        margin-left: 65%;
+    }
+}
+/* ********************************************************************************************* */
+/* *********************************** feedback_home (конец) *********************************** */
+/* ********************************************************************************************* */
+
+/* ********************************************************************************************* */
+/* ********************************* ФОРМА ДОБАВИТЬ ОТЗЫВ (начало) ***************************** */
+/* ********************************************************************************************* */
+@media screen and (max-width: 2560px){
+    .form-feedback-styles{
+        display: block;
+        width: 500px; /* 700 */
+        height: 30px;
+        /*background-color: red;*/
+    }
+    .form-feedback-styles-content{
+        display: block;
+        width: 500px;
+        height: 150px;
+        border: 1px solid lightgrey;
+        border-radius: 4px;
+        padding-left: 2%;
+    }
+    .feedback_add_btn{
+        width: 500px;
+        height: 25px;
+        background: #040546;
+        border-radius: 4px;
+        color:#fff;
+        font-size:14px;
+        text-transform:uppercase;
+        border: 0px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 911px){
+    .form-feedback-styles{
+        display: block;
+        width: 480px; /* 700 */
+        height: 30px;
+        /*background-color: red;*/
+    }
+    .form-feedback-styles-content{
+        display: block;
+        width: 480px;
+        height: 150px;
+        border: 1px solid lightgrey;
+        border-radius: 4px;
+        padding-left: 2%;
+    }
+    .feedback_add_btn{
+        width: 480px;
+        height: 25px;
+        background: #040546;
+        border-radius: 4px;
+        color:#fff;
+        font-size:14px;
+        text-transform:uppercase;
+        border: 0px;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 505px){
+    .form-feedback-styles{
+        max-width: 350px;
+        max-height: 30px;
+        /*background-color: red;*/
+    }
+    .form-feedback-styles-content{
+        display: block;
+        width: 350px;
+        height: 150px;
+        border: 1px solid lightgrey;
+        border-radius: 4px;
+        padding-left: 2%;
+    }
+    .feedback_add_btn{
+        width: 350px;
+        height: 25px;
+        background: #040546;
+        border-radius: 4px;
+        color:#fff;
+        font-size:14px;
+        text-transform:uppercase;
+        border: 0px;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width: 320px){
+    .form-feedback-styles{
+        max-width: 310px;
+        max-height: 30px;
+        margin: 0 auto;
+        /*background-color: red;*/
+    }
+    .form-feedback-styles-content{
+        display: block;
+        width: 310px;
+        height: 120px;
+        margin: 0 auto;
+        border: 1px solid lightgrey;
+        border-radius: 4px;
+        padding-left: 2%;
+    }
+    .feedback_add_btn{
+        width: 310px;
+        height: 25px;
+        background: #040546;
+        border-radius: 4px;
+        color:#fff;
+        font-size:14px;
+        text-transform:uppercase;
+        border: 0px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .feedback_add_by_customer_block form p{
+        text-align: center;
+    }
+}
+/* ********************************************************************************************* */
+/* ********************************* ФОРМА ДОБАВИТЬ ОТЗЫВ (конец) ****************************** */
+/* ********************************************************************************************* */

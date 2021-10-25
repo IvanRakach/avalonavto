@@ -1,0 +1,8 @@
+from django.apps import AppConfig
+
+
+class PrivateRoomConfig(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'private_room'
+    # Изменим название таблицы в самом приложении:
+    verbose_name = 'Личный кабинет пользователя'

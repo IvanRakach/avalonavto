@@ -1,0 +1,88 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Информация о компании{% endblock %}
+
+{% block main_content %}
+<br>
+<h3 class="about_us_anchor">О компании</h3>
+
+<div class="about_us_block clearfix">
+    <div class="about_us_content clearfix">
+        <div class="about_us_content_1">
+            <p>
+                Более 5 лет команда avalonavto профессионально занимается подбором и продажей автомобилей.
+                Благодаря нашему опыту, а также приятным ценам, любой из наших клиентов сможет получить желаемый
+                автомобиль по наиболее выгодным условиям.
+            </p>
+            <p>
+                Мы занимаемся не только продажей автомобилей с нашей площадки, но и оказываем услуги по подбору авто
+                в РБ, РФ, Европе и США.
+                Оказываем помощь в кредитовании или покупке в лизинг.
+            </p>
+        </div>
+        <div class="about_us_content_2">
+            <p>
+                Мы находимся на минус 2-ом уровне паркинга ТЦ «Тивали» где всегда тепло и сухо,
+                так же у нас круглосуточное видеонаблюдение и охрана.
+                Всего в 300м. от ст.м "Спортивная" и 600м от ст.м "Пушкинская".
+            </p>
+        </div>
+    </div>
+    <div class="about_us_table">
+        <h3 class="about_us_table_header">Наши реквизиты</h3>
+        <table class="no_class">
+        <tr>
+            <td>УНП:</td>
+            <td>123456789</td>
+        </tr>
+        <tr>
+            <td>Телефон:</td>
+            <td>+375 (17) 111-22-33</td>
+        </tr>
+        <tr>
+            <td>Адрес юридической регистрации:</td>
+            <td>г.Минск ул.Дунина-Марцикевича д.3, минус 2 уровень паркинга</td>
+        </tr>
+        <tr>
+            <td>E-mail:</td>
+            <td><a href="mailto:avtoexpertbel@gmail.com">avtoexpertbel@gmail.com</a></td>
+        </tr>
+    </table>
+    </div>
+
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{ form.as_p }}-->
+<!--        <button class="feedback_add_btn" type="submit">Задать вопрос</button>-->
+<!--    </form>-->
+
+
+</div>
+
+<!--<div class="about_us_block">-->
+<!--    <p>Наши реквизиты</p>-->
+<!--&lt;!&ndash;    <p>УНП:</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Тел. городской:</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Тел. мобильный:</p>&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>Адрес регистрации:</p>&ndash;&gt;-->
+<!--    <p>УНП:123456789</p>-->
+<!--    <p>Тел.: +375 (17) 111-22-33</p>-->
+<!--    <p>Адрес регистрации:</p>-->
+<!--    <p>г.Минск ул.Дунина-Марцикевича д.3, минус 2 уровень паркинга</p>-->
+<!--    <div>-->
+<!--        <p>E-mail:-->
+<!--            <a class="feedback-comp-link" href="mailto:avtoexpertbel@gmail.com">avtoexpertbel@gmail.com</a>-->
+<!--        </p>-->
+<!--    </div>-->
+
+<!--    <a href="{% url 'home' %}">На главную</a>-->
+
+<!--</div>-->
+
+
+
+{% endblock %}
+
+
+

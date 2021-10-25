@@ -1,0 +1,276 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% load feedback_tags %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block main_content %}
+<br>
+
+<!--<h1 class="feedback_home_anchor">{{ title }}</h1>-->
+<div class="feedback_block clearfix feedback_home_anchor">
+
+    <div class="feedback_block_1 clearfix"> <!-- "Меню" с категориями отзывов -->
+        <ul class="" style="list-style: none;">
+        {% if service_category_selected == 0 %}
+            <li class="selected">Все категории услуг:</li>
+        {% else %}
+            <li><a href="{% url 'feedback_home' %}">Все категории услуг:</a></li>
+        {% endif %}
+
+        {% for i in service_cats %}
+            {% if i.pk == service_category_selected %}
+                <li class="selected">- {{ i.service_category_name }};</li>
+            {% else %}
+                <li class=""><a href="{{ i.get_absolute_url }}">- {{ i.service_category_name }}</a></li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+<!-- ---------------------------------------------------------------------------- -->
+    <div class="feedback_block_2 clearfix">
+        <div class="feedback_home_info">
+<!--            <p>Мы хотим узнать, как Вы оцениваете качество работы нашей-->
+<!--                организации и оказываемых нами услуг.<br>-->
+<!--                Ваше мнение нам очень важно и будет учтено в дальнейшей работе!-->
+<!--            </p>-->
+        </div>
+
+        <div class="feedback_home_info_link">
+            <a href="{% url 'feedback_add_by_customer' %}"><button class="feedback_home_info_link_btn">
+            <span>Оставьте отзыв о нашей работе</span></button></a>
+        </div>
+
+        <div class="feedback_home_info_text">
+            <p>Мы хотим узнать, как Вы оцениваете качество работы нашей
+                организации и оказываемых нами услуг.
+            </p>
+            <p>
+                Ваше мнение нам очень важно и будет учтено в дальнейшей работе!
+            </p>
+        </div>
+<!-- ---------------------------------------------------------------------------- -->
+<!--{'%' get_categories as service_categories_for_feedback '%'}-->
+<!-- ДАЛЕЕ ИДЕТ БЛОК ВЫВОДА КОММЕНТАРИЕВ -->
+<!-- ---------------------------------------------------------------------------- -->
+        <div class="feedback_list">
+
+            {% if service_category_selected == 0 %}
+                {% for i in page_obj %}
+                    <div class="article_block">
+                        <div class="article_block_date_category clearfix">
+                            <div class="article_block_category">
+                                <span>Категория: {{ i.feedback_category }}</span>  <!-- ТУТ И ТУТ -->
+                            </div>
+                            <div class="article_block_date">
+                                <span>Дата: {{ i.time_create|date:"d-m-Y H:i:s" }}</span>
+                            </div>
+                        </div>
+                        <div class="article_block_user_info_content"><!--style="background-color: green"-->
+                            <p>{{ i.author_name }}</p>
+                        </div>
+                        <div class="article_block_img_content">
+                            <hr class="where_we">
+                            {% if i.author_photo %}<!-- УКАЗАТЬ, ЧТО РАВНО NULL ИЛИ ЧЕМУ-ТО ПОДОБНОМУ -->
+                                <img src="{{ i.author_photo.url }}" width="120" height="100">
+                            {% else %}
+                                <img src="{% static 'main/img/icon_insurance_v2.png' %}" width="120" height="100">
+                            {% endif %}
+                            <div class="article_block_content" ><!--style="background-color: pink"-->
+                                <p>{{ i.content|linebreaks|truncatewords:50 }}</p>
+                            </div>
+                            <hr class="where_we">
+                        </div>
+                        <div class="read_feedback">
+                            <a href="{% url 'feedback-detail' i.pk %}" class="btn_read_feedback">Подробнее</a>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <!-- ПАГИНАЦИЯ БЕЗ ID (ДЛЯ ГЛ. СТРАНИЦЫ ОТЗЫВОВ) (НАЧАЛО БЛОКА) -->
+                {% if page_obj.has_other_pages %}
+                    <nav class="list-pages">
+                        <ul>
+                            {% if page_obj.has_previous %}
+                            <li class="page-num">
+                                <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+                            </li>
+                            {% endif %}
+
+                            {% for p in page_obj.paginator.page_range %}
+                                {% if page_obj.number == p %}
+                                <li class="page-num page-num-selected">{{ p }}</li>
+                                {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                                <li class="page-num">
+                                    <a href="?page={{ p }}">{{ p }}</a>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj.has_next %}
+                            <li class="page-num">
+                                <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+                <!-- ПАГИНАЦИЯ БЕЗ ID (ДЛЯ ГЛ. СТРАНИЦЫ ОТЗЫВОВ) (КОНЕЦ БЛОКА) -->
+            {% else %}
+                {% for i in service_cats %}
+                    {% if i.pk == service_category_selected %} <!-- 1 -->
+                        {% for i in page_obj_all_feedback %}
+                            <div class="article_block">
+                                <div class="article_block_date_category clearfix">
+                                    <div class="article_block_category">
+                                        <span>Категория: {{ i.feedback_category }}</span>  <!-- ТУТ И ТУТ -->
+                                    </div>
+                                    <div class="article_block_date">
+                                        <span>Дата: {{ i.time_create|date:"d-m-Y H:i:s" }}</span>
+                                    </div>
+                                </div>
+                                <div class="article_block_user_info_content"><!--style="background-color: green"-->
+                                    <p>{{ i.author_name }}</p>
+                                </div>
+                                <div class="article_block_img_content">
+                                    <hr>
+                                    {% if i.author_photo %}<!-- УКАЗАТЬ, ЧТО РАВНО NULL ИЛИ ЧЕМУ-ТО ПОДОБНОМУ -->
+                                        <img src="{{ i.author_photo.url }}" width="120" height="100">
+                                    {% else %}
+                                        <img src="{% static 'main/img/icon_insurance_v2.png' %}" width="120" height="100">
+                                    {% endif %}
+                                    <div class="article_block_content" ><!--style="background-color: pink"-->
+                                        <p>{{ i.content|linebreaks|truncatewords:50 }}</p>
+                                    </div>
+                                    <hr>
+                                </div>
+                                <div class="read_feedback">
+                                    <a href="{% url 'feedback-detail' i.pk %}" class="btn_read_feedback">Подробнее</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endfor %}
+                <!-- ПАГИНАЦИЯ ЧЕРЕЗ ID (ДЛЯ КАТЕГОРИЙ) (НАЧАЛО БЛОКА) -->
+                {% if page_obj_all_feedback.has_other_pages %}
+                    <nav class="list-pages">
+                        <ul>
+                            {% if page_obj_all_feedback.has_previous %}
+                            <li class="page-num">
+                                <a href="?page={{ page_obj_all_feedback.previous_page_number }}">&lt;</a>
+                            </li>
+                            {% endif %}
+
+                            {% for p in page_obj_all_feedback.paginator.page_range %}
+                                {% if page_obj_all_feedback.number == p %}
+                                <li class="page-num page-num-selected">{{ p }}</li>
+                                {% elif p >= page_obj_all_feedback.number|add:-2 and p <= page_obj_all_feedback.number|add:2 %}
+                                <li class="page-num">
+                                    <a href="?page={{ p }}">{{ p }}</a>
+                                </li>
+                                {% endif %}
+                            {% endfor %}
+
+                            {% if page_obj_all_feedback.has_next %}
+                            <li class="page-num">
+                                <a href="?page={{ page_obj_all_feedback.next_page_number }}">&gt;</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </nav>
+                {% endif %}
+                <!-- ПАГИНАЦИЯ ЧЕРЕЗ ID (ДЛЯ КАТЕГОРИЙ) (КОНЕЦ БЛОКА) -->
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+<!-- ---------------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------- -->
+
+<!-- ---------------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------- -->
+<!-- ---------------------------------------------------------------------------- -->
+
+
+
+
+<!-- ---------------------------------------------------------------------------------------------------------- -->
+
+<!--    <aside class="feedback_home_anchor">-->
+<!--        <ul>-->
+<!--            {% if service_category_selected == 0 %}-->
+<!--                <li class="selected">Все категории услуг</li>-->
+<!--            {% else %}-->
+<!--                <li><a href="{% url 'feedback_home' %}">Все категории услуг</a></li>-->
+<!--            {% endif %}-->
+
+<!--            {% for i in service_cats %}-->
+<!--                {% if i.pk == service_category_selected %}-->
+<!--                    <li class="selected">{{ i.service_category_name }}</li>-->
+<!--                {% else %}-->
+<!--                    <li class="selected"><a href="{{ i.get_absolute_url }}">{{ i.service_category_name }}</a></li>-->
+<!--                {% endif %}-->
+<!--            {% endfor %}-->
+<!--    &lt;!&ndash;            <li><a href="#">Привоз и продажа мотоциклов</a></li>&ndash;&gt;-->
+<!--    &lt;!&ndash;            <li><a href="#">Привоз и продажа автомобилей</a></li>&ndash;&gt;-->
+<!--    &lt;!&ndash;            <li><a href="#">Ремонт мото- и автотехники</a></li>&ndash;&gt;-->
+<!--    &lt;!&ndash;            <li><a href="#">Хранение мототехники</a></li>&ndash;&gt;-->
+<!--        </ul>-->
+<!--        -->
+<!--    </aside>-->
+
+<!--<h1 class="feedback_home_anchor">{{ title }}</h1>-->
+<!--<br>-->
+
+<!--<div>-->
+<!--    Мы хотим узнать, как Вы оцениваете качество работы нашей-->
+<!--        организации и оказываемых нами услуг.<br>-->
+<!--    Ваше мнение нам очень важно и будет учтено в дальнейшей работе!-->
+<!--</div>-->
+
+<!--<a href="{% url 'feedback_add_by_customer' %}"><button class="btn btn-info">-->
+<!--    <h2>Оставить отзыв о нашей работе</h2></button></a>-->
+
+
+
+<!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+<!--  Lorem Ipsum has been the industry's standard dummy text ever since the-->
+<!--  1500s, when an unknown printer took a galley of type and scrambled it to-->
+<!--  make a type specimen book. It has survived not only five centuries, but-->
+<!--  also the leap into electronic typesetting, remaining essentially unchanged.-->
+<!--  It was popularised in the 1960s with the release of Letraset sheets containing-->
+<!--  Lorem Ipsum passages, and more recently with desktop publishing software like Aldus-->
+<!--  PageMaker including versions of Lorem Ipsum.</p>-->
+
+
+
+<!--&lt;!&ndash;        {{ feedback }} &lt;!&ndash; выводим весь наш объект из функции feedback_home в файлу views &ndash;&gt;&ndash;&gt;-->
+<!--<div class="feedback_list">-->
+<!--    {% if feedback %}-->
+<!--        {% for i in feedback %}-->
+<!--            <div class="article-panel">-->
+<!--                <p>Категория: {{ i.feedback_category }}</p>  &lt;!&ndash; ТУТ И ТУТ &ndash;&gt;-->
+<!--                <p>Дата: {{ i.time_update|date:"d-m-Y H:i:s" }}</p>-->
+<!--            </div>-->
+<!--            {% if i.feedback %}-->
+<!--                <p><img src="{{ i.author_photo.url }}"></p>-->
+<!--            {% endif %}-->
+<!--            <div class="alert-warning">-->
+<!--                <h3>{{ i.author_name }}</h3>-->
+<!--                <p>{{ i.feedback_category }}</p>  &lt;!&ndash; ТУТ И ТУТ &ndash;&gt;-->
+<!--                <p>{{ i.content|linebreaks|truncatewords:50 }}</p>-->
+<!--                <p>{{ i.author_photo }}</p>-->
+<!--                <a href="{% url 'feedback-detail' i.pk %}" class="btn btn-warning">Читать отзыв</a>-->
+<!--                <a href="{{ i.get_absolute_url }}" class="btn btn-warning">Читать отзыв - кнопка в модели</a>-->
+<!--            </div>-->
+<!--        {% endfor %}-->
+<!--    {% else %}-->
+<!--        <p>Пока на сайте нет записей</p>-->
+<!--    {% endif %}-->
+<!--</div>-->
+
+    <!--  {# комментарий #} {# {%%} #} -->
+
+{% endblock %}

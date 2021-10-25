@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Удаление статьи{% endblock %}
+
+{% block main_content %}
+<br>
+<h1 class="delete_feedback_anchor">Вы уверены, что хотите удалить комментарий?</h1>
+
+    <div class="delete_feedback_block"> <!-- class="clearfix" -->
+
+        <div class="feedback_add_by_customer_delete">
+            <form method="post"> <!--  class="feedback_add_by_customer-form" -->
+                {% csrf_token %}
+                <div class="del_btn_block">
+                    <button class="del_btn" type="submit">Удаление комментария</button>
+                </div>
+            </form>
+        </div>
+
+        <!--  {# комментарий #} {# {%%} #} -->
+    </div>
+<!--    <a href="{% url 'home' %}">На главную</a>-->
+{% endblock %}

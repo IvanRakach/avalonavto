@@ -1,0 +1,130 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Импорт автомобилей{% endblock %}
+
+{% block main_content %}
+<br>
+<h3 class="auto_import_anchor">Доставка автомобилей из США и Европы</h3>
+
+<!--<ul>-->
+<!--    <li>1. Стоимость покупки автомобиля на аукционе.</li>-->
+<!--    <li>2. Аукционный сбор (примерно 450-728$) зависит от цены покупки на аукционе.</li>-->
+<!--    <li>3. Доставка до порта.</li>-->
+<!--    <li>4. Крепление автомобиля в контейнере, оформление документов, дополнительное фото в порту (БЕСПЛАТНО).</li>-->
+<!--    <li>5. Доставка от порта до Клайпеды.</li>-->
+<!--    <li>6. Доставка от Клайпеды до Минска.</li>-->
+<!--    <li>7. 500 или 600 BYN - услуги нашей компании.</li>-->
+<!--    <li>8. Таможенные платежи + услуги СВХ + утильсбор.</li>-->
+
+<!--    <li> ВСЯ ИНФОРМАЦИЯ ОТ СЮДА &ndash;&gt; "https://carsusa.by/price/"</li>-->
+<!--</ul>-->
+<!-- ---------------------------------------------------------------------------------------- -->
+
+
+    <div class="auto_import_block clearfix">
+        <div class="auto_import_block_text">
+            <div class="auto_import_block_introductory_text">
+                <p>
+                    Вариации и разнообразие двухколёсной техники с каждым годом становятся
+                    всё обширнее и интереснее. Появляются новые модели и классы, новые компании
+                    по производству мотоциклов, некоторые слабые компании умирают, какие-то буквально
+                    восстают из пепла, словно сказочный Феникс.
+                </p>
+                <p>
+                    Мечта обладать хорошим мотоциклом может стать реальностью – будь то старый
+                    Harley-Davidson на двигателе «Panhead» или новенького супер-спортивного
+                    BMW HP4 Race, благодаря нашей компании.
+                </p>
+                <p>
+                    Мы поможем Вам с определением желаемого варианта, подскажем все нюансы и вместе с
+                    Вами пройдём нелегкий путь от выбора модели на аукционе до открытия контейнера в
+                    Минске. Некоторые с опаской и предвзятостью относятся к возможности приобретения
+                    повреждённой техники из США, но как показывает статистика и практика – брать
+                    мотоцикл со страхового аукциона Америки выходит на 25-30% выгоднее, нежели брать
+                    такой же на территории СНГ. Многолетний опыт работы, индивидуальный подход к
+                    клиентам и масса хороших отзывов за спиной говорят о качестве наших услуг сами за себя.
+                    Звоните или пишите – мы всегда рады новым клиентам.
+                </p>
+            </div>
+            <div class="auto_import_block_BP">
+                <p>
+                    Процесс нашей работы предельно прост:
+                </p>
+                <ul>
+                    <li>1. Стоимость покупки автомобиля на аукционе.</li>
+                    <li>2. Аукционный сбор (примерно 450-728$) зависит от цены покупки на аукционе.</li>
+                    <li>3. Доставка до порта.</li>
+                    <li>4. Крепление автомобиля в контейнере, оформление документов, дополнительное фото в порту (БЕСПЛАТНО).</li>
+                    <li>5. Доставка от порта до Клайпеды.</li>
+                    <li>6. Доставка от Клайпеды до Минска.</li>
+                    <li>7. 500 или 600 BYN - услуги нашей компании.</li>
+                    <li>8. Таможенные платежи + услуги СВХ + утильсбор.</li>
+
+                    <li> ВСЯ ИНФОРМАЦИЯ ОТ СЮДА --> "https://carsusa.by/price/"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="auto_import_block_available_auto">
+            <h3 align="center">Имеющиеся в наличии предложения</h3>
+            <hr class="where_we">
+
+            <div class="available_auto_list">
+                <!-- тут будет список доступных к продаже мото с каталога "av.by" длиной в 1 страницу -->
+                {% if auto_import_available_auto_offer %}
+                    {% for auto_offer in auto_import_available_auto_offer %}
+                        <article>
+<!--                            <div>{{ moto_offer.moto_image_field }}</div>-->
+                            <div class="item_card_photo">
+<!--                                фото-->
+                                <img src="{{ auto_offer.auto_image_field_main.url }}" class="scale">
+                            </div>
+                            <div class="item_card_info clearfix">
+
+                                <div class="item_card_about">
+                                    <div class="sel_opacity"><small>Марка: {{ auto_offer.auto_brand_title_field }}</small></div>
+                                    <div class="sel_opacity"><small>Модель: {{ auto_offer.auto_model_title_field }}</small></div>
+                                    <div class="sel_opacity"><small>Год выпуска: {{ auto_offer.auto_release_date_field }}</small></div>
+                                    <div class="sel_opacity"><small>Объем двигателя: {{ auto_offer.eng_vol_field }} см<sup>3</sup>.</small></div>
+                                    <div class="sel_opacity"><small>Пробег: {{ auto_offer.auto_mileage_field }} км.</small></div>
+                                </div>
+
+
+<!--                                <div>Описание: {{ moto_offer.moto_description_field }}</div>-->
+<!--                                <div>Контакты продавца: {{ moto_offer.moto_contacts_field }}</div>-->
+<!--                                <div>Трансмиссия: {{ moto_offer.transmission_field }}</div>-->
+<!--                                <div>Тип мотоцикла: {{ moto_offer.type_of_moto }}</div>-->
+<!--                                <div>Вид топлива: {{ moto_offer.fuel_type_field }}</div>-->
+<!--                                <div>VIN номер: {{ moto_offer.moto_VIN_vehicle }}</div>-->
+<!--                                <div>Расположение: {{ moto_offer.moto_location_field }}</div>-->
+                                <div class="item_card_info__price">
+                                    <div class="sel_opacity"><small>Цена в бел.руб.: {{ auto_offer.auto_price_BYN_field }} BYN</small></div>
+                                    <!-- &asymp; - ≈ -->
+                                    <div class="sel_opacity"><small>Цена в долл.США: &asymp; {{ auto_offer.auto_price_USD_field }} USD</small></div>
+                                </div>
+                                <div class="more_inf_btn_item_more">
+                                    <a href="{% url 'auto_import_available_auto_offer' auto_offer.slug %}" target="_blank"><small>Подробнее</small></a>
+                                </div>
+<!--                                        <a href="{'%' url 'auto_import_available_auto_offer' auto_offer.slug '%'}" class="more_inf_btn">Подробнее</a>-->
+<!--                                    <button type="submit" class="more_inf_btn">Подробнее</button>-->
+
+                            </div>
+
+                        </article>
+                    {% endfor %}
+                {% else %}
+                    <h3 align="center">На сегодняшний день нет предложений для продажи</h3>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+<!--<div class="available_auto_link">-->
+    <!-- тут будет ссылка-кнопка на каталог "av.by" -->
+<!--    <a href="https://av.by/company/1726505/cars">Посмотреть предложения на сайте av.by</a>-->
+<!--</div>-->
+<br>
+
+<!--    <a href="{% url 'home' %}">На главную</a>-->
+{% endblock %}

@@ -1,0 +1,622 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Личный кабинет{% endblock %}
+
+{% block main_content %}
+
+<div class="private_room">
+<br>
+<h3 class="private_room_anchor">Статус <!-- и местоположение --> заказанной техники и (или) услуги</h3>
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- Блок с мотодоставкой (начало) -->
+    <div>
+        {% if moto_import_order_for_legal_persons and request.user.is_authenticated %}
+    <!--        {'%' for var in moto_import_order '%'}-->
+    <!--            {'%' if var.categories_of_customers_id == 1 '%'}-->
+                    <p class="private_room_spacing_btwn_tables">Заказанная мототехника:</p>
+                    <table class="private_room_table">
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Серия и номер паспорта клиента</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка мотоцикла</td>
+                            <td>Год выпуска заказанного мотоцикла</td>
+                            <td>Тип заказанного мотоцикла</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива мотоцикла</td>
+                            <td>VIN номер заказанного мотоцикла</td>
+                            <td>Ожидаемая дата прибытия заказанной техники</td>
+                        </tr>
+                    {% for order in moto_import_order_for_legal_persons %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_passport_series }} {{ order.customers_passport_number }}</td>
+                            <td>{{ order.moto_agreement_number }}</td>
+                            <td>{{ order.moto_agreement_conclusion_date }}</td>
+                            <td>{{ order.moto_brand }}</td>
+                            <td>{{ order.moto_release_date }}</td>
+                            <td>{{ order.type_of_moto }}</td>
+                            <td>{{ order.moto_engine_volume }}</td>
+                            <td>{{ order.moto_engine_type }}</td>
+                            <td>{{ order.moto_VIN_vehicle }}</td>
+                            <td>{{ order.moto_expected_delivery_date_in_the_RB }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if moto_import_order_for_legal_entities %}
+                    <p class="private_room_spacing_btwn_tables">Заказанная мототехника:</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование организации клиента</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка мотоцикла</td>
+                            <td>Год выпуска заказанного мотоцикла</td>
+                            <td>Тип заказанного мотоцикла</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива мотоцикла</td>
+                            <td>VIN номер заказанного мотоцикла</td>
+                            <td>Ожидаемая дата прибытия заказанной техники</td>
+                        </tr>
+                    {% for order in moto_import_order_for_legal_entities %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.moto_agreement_number }}</td>
+                            <td>{{ order.moto_agreement_conclusion_date }}</td>
+                            <td>{{ order.moto_brand }}</td>
+                            <td>{{ order.moto_release_date }}</td>
+                            <td>{{ order.type_of_moto }}</td>
+                            <td>{{ order.moto_engine_volume }}</td>
+                            <td>{{ order.moto_engine_type }}</td>
+                            <td>{{ order.moto_VIN_vehicle }}</td>
+                            <td>{{ order.moto_expected_delivery_date_in_the_RB }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if moto_import_order_for_individual_entrepreneur %}
+                    <p class="private_room_spacing_btwn_tables">Заказанная мототехника:</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование организации клиента</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка мотоцикла</td>
+                            <td>Год выпуска заказанного мотоцикла</td>
+                            <td>Тип заказанного мотоцикла</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива мотоцикла</td>
+                            <td>VIN номер заказанного мотоцикла</td>
+                            <td>Ожидаемая дата прибытия заказанной техники</td>
+                        </tr>
+                    {% for order in moto_import_order_for_individual_entrepreneur %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.moto_agreement_number }}</td>
+                            <td>{{ order.moto_agreement_conclusion_date }}</td>
+                            <td>{{ order.moto_brand }}</td>
+                            <td>{{ order.moto_release_date }}</td>
+                            <td>{{ order.type_of_moto }}</td>
+                            <td>{{ order.moto_engine_volume }}</td>
+                            <td>{{ order.moto_engine_type }}</td>
+                            <td>{{ order.moto_VIN_vehicle }}</td>
+                            <td>{{ order.moto_expected_delivery_date_in_the_RB }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+    </div>
+    <br>
+
+    <!-- Блок с мотодоставкой (конец) -->
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- Блок с автодоставкой (начало) -->
+    <div>
+        {% if auto_import_order_for_legal_persons %}
+    <!--        {'%' for var in moto_import_order '%'}-->
+    <!--            {'%' if var.categories_of_customers_id == 1 '%'}-->
+                    <p class="private_room_spacing_btwn_tables">Заказанная автотехника:</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Серия и номер паспорта клиента</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка автомобиля</td>
+                            <td>Год выпуска заказанного автомобиля</td>
+                            <td>Тип заказанного автомобиля</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива автомобиля</td>
+                            <td>VIN номер заказанного автомобиля</td>
+                            <td>Ожидаемая дата прибытия заказанной техники</td>
+                        </tr>
+                    {% for order in auto_import_order_for_legal_persons %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_passport_series }} {{ order.customers_passport_number }}</td>
+                            <td>{{ order.auto_agreement_number }}</td>
+                            <td>{{ order.auto_agreement_conclusion_date }}</td>
+                            <td>{{ order.auto_brand }}</td>
+                            <td>{{ order.auto_release_date }}</td>
+                            <td>{{ order.type_of_auto }}</td>
+                            <td>{{ order.auto_engine_volume }}</td>
+                            <td>{{ order.auto_engine_type }}</td>
+                            <td>{{ order.auto_VIN_vehicle }}</td>
+                            <td>{{ order.auto_expected_delivery_date_in_the_RB }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if auto_import_order_for_legal_entities %}
+                    <p class="private_room_spacing_btwn_tables">Заказанная автотехника:</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование организации клиента</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка автомобиля</td>
+                            <td>Год выпуска заказанного автомобиля</td>
+                            <td>Тип заказанного автомобиля</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива автомобиля</td>
+                            <td>VIN номер заказанного автомобиля</td>
+                            <td>Ожидаемая дата прибытия заказанной техники</td>
+                        </tr>
+                    {% for order in auto_import_order_for_legal_entities %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.auto_agreement_number }}</td>
+                            <td>{{ order.auto_agreement_conclusion_date }}</td>
+                            <td>{{ order.auto_brand }}</td>
+                            <td>{{ order.auto_release_date }}</td>
+                            <td>{{ order.type_of_auto }}</td>
+                            <td>{{ order.auto_engine_volume }}</td>
+                            <td>{{ order.auto_engine_type }}</td>
+                            <td>{{ order.auto_VIN_vehicle }}</td>
+                            <td>{{ order.auto_expected_delivery_date_in_the_RB }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if auto_import_order_for_individual_entrepreneur %}
+                    <p class="private_room_spacing_btwn_tables">Заказанная автотехника:</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование организации клиента</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка автомобиля</td>
+                            <td>Год выпуска заказанного автомобиля</td>
+                            <td>Тип заказанного автомобиля</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива автомобиля</td>
+                            <td>VIN номер заказанного автомобиля</td>
+                            <td>Ожидаемая дата прибытия заказанной техники</td>
+                        </tr>
+                    {% for order in auto_import_order_for_individual_entrepreneur %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.auto_agreement_number }}</td>
+                            <td>{{ order.auto_agreement_conclusion_date }}</td>
+                            <td>{{ order.auto_brand }}</td>
+                            <td>{{ order.auto_release_date }}</td>
+                            <td>{{ order.type_of_auto }}</td>
+                            <td>{{ order.auto_engine_volume }}</td>
+                            <td>{{ order.auto_engine_type }}</td>
+                            <td>{{ order.auto_VIN_vehicle }}</td>
+                            <td>{{ order.auto_expected_delivery_date_in_the_RB }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+    </div>
+    <br>
+
+    <!-- Блок с автодоставкой (конец) -->
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- Блок с сервисными мото услугами (начало) -->
+    <div>
+        {% if moto_service_order_for_legal_persons %}
+                    <p class="private_room_spacing_btwn_tables">Оказываемые сервисные услуги для физических лиц (мототехника):</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Серия и номер паспорта клиента</td>
+                            <td>Заказанные сервисные работы</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка мотоцикла</td>
+                            <td>Год выпуска мотоцикла</td>
+                            <td>Тип мотоцикла</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива мотоцикла</td>
+                            <td>VIN номер мотоцикла</td>
+                            <td>Ожидаемая дата окончания ремонта техники</td>
+                        </tr>
+                    {% for order in moto_service_order_for_legal_persons %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_passport_series }} {{ order.customers_passport_number }}</td>
+                            <td>{{ order.moto_types_of_services }}</td>
+                            <td>{{ order.moto_agreement_number }}</td>
+                            <td>{{ order.moto_agreement_conclusion_date }}</td>
+                            <td>{{ order.moto_brand }}</td>
+                            <td>{{ order.moto_release_date }}</td>
+                            <td>{{ order.type_of_moto }}</td>
+                            <td>{{ order.moto_engine_volume }}</td>
+                            <td>{{ order.moto_engine_type }}</td>
+                            <td>{{ order.moto_VIN_vehicle }}</td>
+                            <td>{{ order.moto_expected_result_service_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if moto_service_order_for_legal_entities %}
+                    <p class="private_room_spacing_btwn_tables">Оказываемые сервисные услуги для юридических лиц (мототехника):</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование организации клиента</td>
+                            <td>Заказанные сервисные работы</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка мотоцикла</td>
+                            <td>Год выпуска мотоцикла</td>
+                            <td>Тип мотоцикла</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива мотоцикла</td>
+                            <td>VIN номер мотоцикла</td>
+                            <td>Ожидаемая дата окончания ремонта техники</td>
+                        </tr>
+                    {% for order in moto_service_order_for_legal_entities %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.moto_types_of_services }}</td>
+                            <td>{{ order.moto_agreement_number }}</td>
+                            <td>{{ order.moto_agreement_conclusion_date }}</td>
+                            <td>{{ order.moto_brand }}</td>
+                            <td>{{ order.moto_release_date }}</td>
+                            <td>{{ order.type_of_moto }}</td>
+                            <td>{{ order.moto_engine_volume }}</td>
+                            <td>{{ order.moto_engine_type }}</td>
+                            <td>{{ order.moto_VIN_vehicle }}</td>
+                            <td>{{ order.moto_expected_result_service_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if moto_service_order_for_individual_entrepreneur %}
+                    <p class="private_room_spacing_btwn_tables">Оказываемые сервисные услуги для индивидуальных предпринимателей (мототехника):</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование лица, заказавшего работы</td>
+                            <td>Заказанные сервисные работы</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка мотоцикла</td>
+                            <td>Год выпуска мотоцикла</td>
+                            <td>Тип мотоцикла</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива мотоцикла</td>
+                            <td>VIN номер мотоцикла</td>
+                            <td>Ожидаемая дата окончания ремонта техники</td>
+                        </tr>
+                    {% for order in moto_service_order_for_individual_entrepreneur %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.moto_types_of_services }}</td>
+                            <td>{{ order.moto_agreement_number }}</td>
+                            <td>{{ order.moto_agreement_conclusion_date }}</td>
+                            <td>{{ order.moto_brand }}</td>
+                            <td>{{ order.moto_release_date }}</td>
+                            <td>{{ order.type_of_moto }}</td>
+                            <td>{{ order.moto_engine_volume }}</td>
+                            <td>{{ order.moto_engine_type }}</td>
+                            <td>{{ order.moto_VIN_vehicle }}</td>
+                            <td>{{ order.moto_expected_result_service_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+    </div>
+    <br>
+
+    <!-- Блок с сервисными мото услугами (конец) -->
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- Блок с сервисными авто услугами (начало) -->
+    <div>
+        {% if auto_service_order_for_legal_persons %}
+                    <p class="private_room_spacing_btwn_tables">Оказываемые сервисные услуги для физических лиц (автотехника):</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Серия и номер паспорта клиента</td>
+                            <td>Заказанные сервисные работы</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка автомобиля</td>
+                            <td>Год выпуска автомобиля</td>
+                            <td>Тип автомобиля</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива автомобиля</td>
+                            <td>VIN номер автомобиля</td>
+                            <td>Ожидаемая дата окончания ремонта техники</td>
+                        </tr>
+                    {% for order in auto_service_order_for_legal_persons %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_passport_series }} {{ order.customers_passport_number }}</td>
+                            <td>{{ order.auto_types_of_services }}</td>
+                            <td>{{ order.auto_agreement_number }}</td>
+                            <td>{{ order.auto_agreement_conclusion_date }}</td>
+                            <td>{{ order.auto_brand }}</td>
+                            <td>{{ order.auto_release_date }}</td>
+                            <td>{{ order.type_of_auto }}</td>
+                            <td>{{ order.auto_engine_volume }}</td>
+                            <td>{{ order.auto_engine_type }}</td>
+                            <td>{{ order.auto_VIN_vehicle }}</td>
+                            <td>{{ order.auto_expected_result_service_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if auto_service_order_for_legal_entities %}
+                    <p class="private_room_spacing_btwn_tables">Оказываемые сервисные услуги для юридических лиц (автотехника):</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование организации клиента</td>
+                            <td>Заказанные сервисные работы</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка автомобиля</td>
+                            <td>Год выпуска автомобиля</td>
+                            <td>Тип автомобиля</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива автомобиля</td>
+                            <td>VIN номер автомобиля</td>
+                            <td>Ожидаемая дата окончания ремонта техники</td>
+                        </tr>
+                    {% for order in auto_service_order_for_legal_entities %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.auto_types_of_services }}</td>
+                            <td>{{ order.auto_agreement_number }}</td>
+                            <td>{{ order.auto_agreement_conclusion_date }}</td>
+                            <td>{{ order.auto_brand }}</td>
+                            <td>{{ order.auto_release_date }}</td>
+                            <td>{{ order.type_of_auto }}</td>
+                            <td>{{ order.auto_engine_volume }}</td>
+                            <td>{{ order.auto_engine_type }}</td>
+                            <td>{{ order.auto_VIN_vehicle }}</td>
+                            <td>{{ order.auto_expected_result_service_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if auto_service_order_for_individual_entrepreneur %}
+                    <p class="private_room_spacing_btwn_tables">Оказываемые сервисные услуги для индивидуальных предпринимателей (автотехника):</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование лица, заказавшего работы</td>
+                            <td>Заказанные сервисные работы</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Марка автомобиля</td>
+                            <td>Год выпуска автомобиля</td>
+                            <td>Тип автомобиля</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива автомобиля</td>
+                            <td>VIN номер автомобиля</td>
+                            <td>Ожидаемая дата окончания ремонта техники</td>
+                        </tr>
+                    {% for order in auto_service_order_for_individual_entrepreneur %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.auto_types_of_services }}</td>
+                            <td>{{ order.auto_agreement_number }}</td>
+                            <td>{{ order.auto_agreement_conclusion_date }}</td>
+                            <td>{{ order.auto_brand }}</td>
+                            <td>{{ order.auto_release_date }}</td>
+                            <td>{{ order.type_of_auto }}</td>
+                            <td>{{ order.auto_engine_volume }}</td>
+                            <td>{{ order.auto_engine_type }}</td>
+                            <td>{{ order.auto_VIN_vehicle }}</td>
+                            <td>{{ order.auto_expected_result_service_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+    </div>
+    <br>
+
+    <!-- Блок с сервисными авто услугами (конец) -->
+    <!-- ----------------------------------------------------------------------------- -->
+    <!-- Блок с хранении мототехники (начало) -->
+    <div>
+        {% if moto_safekeeping_order_for_legal_persons %}
+                    <p class="private_room_spacing_btwn_tables">Принятая на хранение мототехника от физического лица:</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Серия и номер паспорта клиента</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Фото переданного на хранение мотоцикла</td>
+                            <td>Марка мотоцикла</td>
+                            <td>Год выпуска мотоцикла</td>
+                            <td>Тип мотоцикла</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива мотоцикла</td>
+                            <td>VIN номер мотоцикла</td>
+                            <td>Дата окончания договора хранения</td>
+                        </tr>
+                    {% for order in moto_safekeeping_order_for_legal_persons %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_passport_series }} {{ order.customers_passport_number }}</td>
+                            <td>{{ order.moto_agreement_number }}</td>
+                            <td>{{ order.moto_agreement_conclusion_date }}</td>
+                            <td>{{ order.photo_vehicle }}</td>
+                            <td>{{ order.moto_brand }}</td>
+                            <td>{{ order.moto_release_date }}</td>
+                            <td>{{ order.type_of_moto }}</td>
+                            <td>{{ order.moto_engine_volume }}</td>
+                            <td>{{ order.moto_engine_type }}</td>
+                            <td>{{ order.moto_VIN_vehicle }}</td>
+                            <td>{{ order.moto_end_safekeeping_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if moto_safekeeping_order_for_legal_entities %}
+                    <p class="private_room_spacing_btwn_tables">Принятая на хранение мототехника от юридического лица:</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование организации клиента</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Фото переданного на хранение мотоцикла</td>
+                            <td>Марка мотоцикла</td>
+                            <td>Год выпуска мотоцикла</td>
+                            <td>Тип мотоцикла</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива мотоцикла</td>
+                            <td>VIN номер мотоцикла</td>
+                            <td>Дата окончания договора хранения</td>
+                        </tr>
+                    {% for order in moto_safekeeping_order_for_legal_entities %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.moto_agreement_number }}</td>
+                            <td>{{ order.moto_agreement_conclusion_date }}</td>
+                            <td>{{ order.photo_vehicle }}</td>
+                            <td>{{ order.moto_brand }}</td>
+                            <td>{{ order.moto_release_date }}</td>
+                            <td>{{ order.type_of_moto }}</td>
+                            <td>{{ order.moto_engine_volume }}</td>
+                            <td>{{ order.moto_engine_type }}</td>
+                            <td>{{ order.moto_VIN_vehicle }}</td>
+                            <td>{{ order.moto_end_safekeeping_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+        {% if moto_safekeeping_order_for_individual_entrepreneur %}
+                    <p class="private_room_spacing_btwn_tables">Принятая на хранение мототехника от индивидуального предпринимателя:</p>
+                    <table>
+                        <tr class="table_header">
+                            <td>Логин пользователя от личного кабинета</td>
+                            <td>Фамилия и имя клиента</td>
+                            <td>Категория клиента</td>
+                            <td>Наименование лица, передавшего мототехнику на хранение</td>
+                            <td>Номер договора</td>
+                            <td>Дата заключения договора</td>
+                            <td>Фото переданного на хранение мотоцикла</td>
+                            <td>Марка мотоцикла</td>
+                            <td>Год выпуска мотоцикла</td>
+                            <td>Тип мотоцикла</td>
+                            <td>Объем двигателя, см3</td>
+                            <td>Вид топлива мотоцикла</td>
+                            <td>VIN номер мотоцикла</td>
+                            <td>Дата окончания договора хранения</td>
+                        </tr>
+                    {% for order in moto_safekeeping_order_for_individual_entrepreneur %}
+                        <tr>
+                            <td>{{ order.user }}</td>
+                            <td>{{ order.user_surname_private_room }} {{ order.user_name_private_room }}</td>
+                            <td>{{ order.categories_of_customers }}</td>
+                            <td>{{ order.customers_enterprise_name }}</td>
+                            <td>{{ order.moto_agreement_number }}</td>
+                            <td>{{ order.moto_agreement_conclusion_date }}</td>
+                            <td>{{ order.photo_vehicle }}</td>
+                            <td>{{ order.moto_brand }}</td>
+                            <td>{{ order.moto_release_date }}</td>
+                            <td>{{ order.type_of_moto }}</td>
+                            <td>{{ order.moto_engine_volume }}</td>
+                            <td>{{ order.moto_engine_type }}</td>
+                            <td>{{ order.moto_VIN_vehicle }}</td>
+                            <td>{{ order.moto_end_safekeeping_date }}</td>
+                        </tr>
+                    {% endfor %}
+                    </table>
+        {% endif %}
+    </div>
+    <!-- Блок с хранении мототехники (конец) -->
+    <!-- ----------------------------------------------------------------------------- -->
+</div>
+{% endblock %}

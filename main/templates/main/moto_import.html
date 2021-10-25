@@ -1,0 +1,222 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block title %}Импорт мототехники{% endblock %}
+
+{% block main_content %}
+<br>
+<h3 class="moto_import_anchor">Доставка мотоциклов из США</h3>
+
+    <div class="moto_import_block clearfix">
+        <div class="moto_import_block_text">
+            <div class="moto_import_block_introductory_text">
+                <p>
+                    Вариации и разнообразие двухколёсной техники с каждым годом становятся
+                    всё обширнее и интереснее. Появляются новые модели и классы, новые компании
+                    по производству мотоциклов, некоторые слабые компании умирают, какие-то буквально
+                    восстают из пепла, словно сказочный Феникс.
+                </p>
+                <p>
+                    Мечта обладать хорошим мотоциклом может стать реальностью – будь то старый
+                    Harley-Davidson на двигателе «Panhead» или новенького супер-спортивного
+                    BMW HP4 Race, благодаря нашей компании.
+                </p>
+                <p>
+                    Мы поможем Вам с определением желаемого варианта, подскажем все нюансы и вместе с
+                    Вами пройдём нелегкий путь от выбора модели на аукционе до открытия контейнера в
+                    Минске. Некоторые с опаской и предвзятостью относятся к возможности приобретения
+                    повреждённой техники из США, но как показывает статистика и практика – брать
+                    мотоцикл со страхового аукциона Америки выходит на 25-30% выгоднее, нежели брать
+                    такой же на территории СНГ. Многолетний опыт работы, индивидуальный подход к
+                    клиентам и масса хороших отзывов за спиной говорят о качестве наших услуг сами за себя.
+                    Звоните или пишите – мы всегда рады новым клиентам.
+                </p>
+            </div>
+            <div class="moto_import_block_BP">
+                <p>
+                    Процесс нашей работы предельно прост:
+                </p>
+                <ul>
+                    <li>1. С клиентом заключается официальный договор.</li>
+                    <li>2. Менеджер производит подбор нужного мотоцикла, предоставляя актуальную информацию клиенту.</li>
+                    <li>3. Происходят торги по выбранному лоту в пределах оговорённой суммы.</li>
+                    <li>4. Клиент вносит необходимую сумму по предоставленным реквизитам.</li>
+                    <li>5. Мотоцикл доставляют в Минск.</li>
+                        <ul>
+                            <li>5.1.На данном этапе у Вас есть возможность отслеживать местоположение доставляемой техники
+                                через предоставляемый личный кабинет на нашем интернет ресурсе.
+                            </li>
+                        </ul>
+                    <li>6. По необходимости может быть осуществлено восстановление прибывшей техники.</li>
+                        <ul>
+                            <li>6.1.На данном этапе у Вас есть возможность отслеживать статус завершенности работ по
+                                ремонту и восстановлению прибывшей техники через предоставляемый личный кабинет
+                                предоставляемый на нашем интернет ресурсе.
+                            </li>
+                        </ul>
+                    <li>7. Осуществляется предпродажный осмотр технического состояния доставленной техники.</li>
+                    <li>8. Happy End.</li>
+                    <li> ПУНКТ ПРО СТРАХОВАНИЕ! КУДА?</li>
+                    <li> ПУНКТ ПРО ВОЗМОЖНОСТЬ ТРЕЙД-ИН! НА КАКИХ УСЛОВИЯХ?</li>
+                    <li> ПУНКТ ПРО ВОЗМОЖНОСТЬ КУПИТЬ В РАССРОЧКУ ИЛИ КРЕДИТ!</li>
+                    <li> ВЫБОР ПОРТА ОТГРУЗКИ. ЭТО НАДО ПИСАТЬ/СОГЛАСОВЫВАТЬ?</li>
+                </ul>
+            </div>
+        </div>
+<!--        <div>-->
+<!--            <div>-->
+<!--                {'%' if moto_filters == 0 '%'}-->
+<!--                    <p class="selected">Показать все предложения:</p>-->
+<!--                {'%' else '%'}-->
+<!--                    <p><a href="{% url 'moto_import' %}">Показать все предложения:</a></p>-->
+<!--                {'%' endif '%'}-->
+<!--            </div>-->
+<!--            <div>-->
+<!--                {'%' for i in moto_brand_filter '%'}-->
+<!--                {'%' if i.pk == moto_filters_selected '%'}-->
+<!--                    <li class="selected">- {{ i.service_category_name }};</li>-->
+<!--                {'%' else '%'}-->
+<!--                    <li class=""><a href="{{ i.get_absolute_url }}">- {{ i.service_category_name }}</a></li>-->
+<!--                {'%' endif '%'}-->
+<!--            {'%' endfor '%'}-->
+<!--            </div>-->
+
+<!--        </div>-->
+        <div class="moto_import_block_available_moto">
+            <h3 align="center">Имеющиеся в наличии предложения</h3>
+            <hr class="where_we">
+
+            <div class="available_moto_list">
+                <!-- тут будет список доступных к продаже мото с каталога "av.by" длиной в 1 страницу -->
+                {% if moto_import_available_moto_offer %}
+                    {% for moto_offer in moto_import_available_moto_offer %}
+                        <article>
+<!--                            <div>{{ moto_offer.moto_image_field }}</div>-->
+                            <div class="item_card_photo">
+<!--                                фото-->
+                                <img src="{{ moto_offer.moto_image_field_main.url }}" class="scale">
+                            </div>
+                            <div class="item_card_info clearfix">
+
+                                <div class="item_card_about">
+                                    <div class="sel_opacity"><small>Марка: {{ moto_offer.moto_brand_title_field }}</small></div>
+                                    <div class="sel_opacity"><small>Модель: {{ moto_offer.moto_model_title_field }}</small></div>
+                                    <div class="sel_opacity"><small>Год выпуска: {{ moto_offer.moto_release_date_field }}</small></div>
+                                    <div class="sel_opacity"><small>Объем двигателя: {{ moto_offer.eng_vol_field }} см<sup>3</sup>.</small></div>
+                                    <div class="sel_opacity"><small>Пробег: {{ moto_offer.moto_mileage_field }} км.</small></div>
+                                </div>
+
+
+<!--                                <div>Описание: {{ moto_offer.moto_description_field }}</div>-->
+<!--                                <div>Контакты продавца: {{ moto_offer.moto_contacts_field }}</div>-->
+<!--                                <div>Трансмиссия: {{ moto_offer.transmission_field }}</div>-->
+<!--                                <div>Тип мотоцикла: {{ moto_offer.type_of_moto }}</div>-->
+<!--                                <div>Вид топлива: {{ moto_offer.fuel_type_field }}</div>-->
+<!--                                <div>VIN номер: {{ moto_offer.moto_VIN_vehicle }}</div>-->
+<!--                                <div>Расположение: {{ moto_offer.moto_location_field }}</div>-->
+                                <div class="item_card_info__price">
+                                    <div class="sel_opacity"><small>Цена в бел.руб.: {{ moto_offer.moto_price_BYN_field }} BYN</small></div>
+                                    <div class="sel_opacity"><small>Цена в долл.США: ≈ {{ moto_offer.moto_price_USD_field }} USD</small></div>
+                                </div>
+                                <div class="more_inf_btn_item_more">
+                                    <a href="{% url 'moto_import_available_moto_offer' moto_offer.slug %}" target="_blank"><small>Подробнее</small></a>
+                                </div>
+
+
+<!--                                <div class="item_card_info__btn_pos">-->
+<!--                                    <a href="{% url 'moto_import_available_moto_offer' moto_offer.pk %}" class="more_inf_btn">Подробнее</a>-->
+
+<!--                                    <a href="{{ moto_offer.moto_link_field }}"><button class="feedback_home_info_link_btn">-->
+<!--                                    <span>Просмотреть предложение на av.by</span></button></a>-->
+
+<!--                                    <button type="submit" class="more_inf_btn">Подробнее</button>-->
+<!--                                </div>-->
+
+                            </div>
+<!--                            <div class="item_card_price clearfix">-->
+<!--                                <div class="item_card_info__price_BYN">Цена в бел.руб.: {{ moto_offer.moto_price_BYN_field }} BYN</div>-->
+<!--                                <div class="item_card_info__price_USD">Цена в долл.США: ≈ {{ moto_offer.moto_price_USD_field }} USD</div>-->
+<!--                            </div>-->
+
+<!--                            <a href="{{ moto_offer.moto_link_field }}">ссылка на мотоцикл на сайте av.by</a>-->
+<!--                            <button type="submit" class="more_inf_btn">Подробнее</button>-->
+
+                        </article>
+                    {% endfor %}
+                {% else %}
+                <h3 align="center">На сегодняшний день нет предложений для продажи</h3>
+                {% endif %}
+            </div>
+
+        </div>
+
+    </div>
+<br>
+<!--<div class="available_moto_link">-->
+<!--    &lt;!&ndash; тут будет ссылка-кнопка на каталог "av.by" &ndash;&gt;-->
+<!--    <a href="https://av.by/company/1726505/moto">Посмотреть предложения на сайте av.by</a>-->
+<!--</div>-->
+
+<!-- ---------------------------------------------------------------------------------------- -->
+<!--    <h3 class="moto_import">Привоз мотоциклов из США</h3> <br>-->
+<!--    <p>Lorem Ipsum is simply dummy text of the printing and typesetting-->
+<!--        industry. Lorem Ipsum has been the industry's standard dummy text-->
+<!--        ever since the 1500s, when an unknown printer took a galley of type-->
+<!--        and scrambled it to make a type specimen book. It has survived not-->
+<!--        only five centuries, but also the leap into electronic typesetting,-->
+<!--        remaining essentially unchanged. It was popularised in the 1960s with-->
+<!--        the release of Letraset sheets containing Lorem Ipsum passages, and-->
+<!--        more recently with desktop publishing software like Aldus PageMaker-->
+<!--        including versions of Lorem Ipsum.</p> <br>-->
+<!--    <h4>Как это работает?</h4>-->
+<!--    <p>картинка-схема процесса</p>-->
+
+
+<!--    <a href="{% url 'home' %}">На главную</a>-->
+<!-- ---------------------------------------------------------------------------------------- -->
+
+    <!-- курсы валют myfin -->
+    <!-- !!! следующая строка активирует информацию по курсам валют (iframe) !!! -->
+<!--    <iframe frameborder="0" height="131" marginheight="0" marginwidth="0" scrolling="no" src="https://admin.myfin.by/outer/informer/minsk" width="240"></iframe>-->
+
+    <!--https://www.pogoda.by-->
+    <!--Информер распространяется свободно и на безвозмездной основе. Однако, в случае изменения кода информера (в частности, удаления ссылок), https://www.pogoda.by снимает с себя ответственность за конечный результат.-->
+    <!-- !!! следующие строки активируют информацию по погоде (table) !!! -->
+
+<!--    <table width="300" height="180" style="background-color:#f2f2f2; border: #cccccc 1px solid; font-family:Tahoma; font-size:12px; color:#000000;" cellpadding="2" cellspacing="0">-->
+<!--    <tr><td><a href="https://6.pogoda.by/26850" style="font-family:Tahoma; font-size:12px; color:#003399;" title="Погода Минск на 6 дней - Гидрометцентр РБ" target="_blank">Погода Минск</a>-->
+<!--    </td></tr>-->
+<!--    <tr><td>-->
+
+<!--    <table width=100% height=100% style="background-color:#f2f2f2; font-family:Tahoma; font-size:12px; color:#000000;" cellpadding="0" cellspacing="0">-->
+<!--    <tr><td>-->
+<!--    <script type="text/javascript" charset="windows-1251" src="https://www.pogoda.by/meteoinformer/js/26850_3.js"></script>-->
+<!--    </td></tr>-->
+<!--    </table>-->
+
+<!--    </td></tr>-->
+
+<!--    <tr><td align="right">Информация сайта <a href="https://www.pogoda.by" target="_blank" style="font-family:Tahoma; font-size:12px; color:#003399;">https://www.pogoda.by</a>-->
+<!--    </td></tr>-->
+<!--    </table>-->
+
+    <!-- Соц сети-->
+    <!-- !!! следующие строки активируют информацию по Соц сетям (script, div) !!! -->
+<!--    <br>-->
+<!--    <script src="https://yastatic.net/share2/share.js"></script>-->
+<!--    <div class="ya-share2" data-curtain data-shape="round" data-services="vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,skype,linkedin,lj"></div>-->
+
+<!--    <script src="https://yastatic.net/share2/share.js"></script>-->
+<!--    <div class="ya-share2" data-curtain data-shape="round" data-limit="0" data-more-button-type="short" data-services="vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,skype,linkedin,lj"></div>-->
+{% endblock %}
+
+<!--<br>-->
+<!--<h3 class="moto_import_anchor">Доставка мотоциклов из США</h3>-->
+
+<!--    <div class="moto_import_block">-->
+<!--        <div class="moto_import_block_BA"></div>-->
+<!--        <div class="moto_import_block_available_moto">-->
+<!--            <div class="available_moto_list"></div>-->
+<!--            <div class="available_moto_link"></div>-->
+<!--        </div>-->
+<!--    </div>-->
